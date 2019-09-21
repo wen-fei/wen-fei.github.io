@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
     
-<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -209,7 +210,7 @@
         
         <li><div class="divider"></div></li>
         <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+            <a href="https://github.com/wen-fei" class="waves-effect waves-light" target="_blank">
                 <i class="fa fa-github-square fa-fw"></i>Fork Me
             </a>
         </li>
@@ -266,7 +267,7 @@
     }
 </style>
 
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+<a href="https://github.com/wen-fei" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
    data-tooltip="Fork Me" data-position="left" data-delay="50">
     <svg viewBox="0 0 250 250" aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
@@ -445,17 +446,13 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 <p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
@@ -759,6 +756,43 @@
 
 </div>
 
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 腾云<br />'
+            + '作者: TengYun<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
 
 
     </div>
