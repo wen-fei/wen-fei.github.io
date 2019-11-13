@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-13T14:24:18.834Z</updated>
+  <updated>2019-11-13T14:31:56.987Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>papers-note-14</title>
+    <link href="http://yoursite.com/2019/11/13/papers-note-14/"/>
+    <id>http://yoursite.com/2019/11/13/papers-note-14/</id>
+    <published>2019-11-13T14:31:34.000Z</published>
+    <updated>2019-11-13T14:31:56.987Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;论文阅读笔记-14&quot;&gt;&lt;a href=&quot;#论文阅读笔记-14&quot; class=&quot;headerlink&quot; title=&quot;论文阅读笔记(14)&quot;&gt;&lt;/a&gt;论文阅读笔记(14)&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;论文题目：MARINE:
+        
+      
+    
+    </summary>
+    
+    
+      <category term="papers" scheme="http://yoursite.com/categories/papers/"/>
+    
+    
+      <category term="papers-notes" scheme="http://yoursite.com/tags/papers-notes/"/>
+    
+  </entry>
   
   <entry>
     <title>hello2</title>
