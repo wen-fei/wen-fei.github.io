@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>内存管理重要概念</title>
+      <link href="/2019/11/14/java-jvm-1/"/>
+      <url>/2019/11/14/java-jvm-1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="深入理解Java虚拟机读书笔记-1-：内存管理重要概念"><a href="#深入理解Java虚拟机读书笔记-1-：内存管理重要概念" class="headerlink" title="深入理解Java虚拟机读书笔记(1)：内存管理重要概念"></a>深入理解Java虚拟机读书笔记(1)：内存管理重要概念</h1><p>说到Java内存管理，不得不先贴一张非常经典的图，如下所示：</p><p><img src="http://www.rowkey.me/images/blog_images/javamm/java-runtime-memory.jpg" alt="java-runtime-memory.jpg"></p><p>这些模块有些是线程私有的，有的则是线程共享的。下面一一对这些模块进行介绍：</p><h2 id="一、程序计数器"><a href="#一、程序计数器" class="headerlink" title="一、程序计数器"></a>一、程序计数器</h2><p>程序计数器一块比较小的内存空间，可以看做当前线程所执行的字节码的行号指示器，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码指令，分支、 循环、 跳转、 异常处理、 线程恢复等基础功能都需要依赖这个计数器来完成。 </p><p>多线程执行时，实际上是轮流占用处理器来执行的，因此，不可避免的有线程切换，因为任何一个时刻，有且仅有一个线程中的指令占用处理器。为了线程切换后能恢复到正确的执行位置，每条线程都需要有一个独立<br>的程序计数器，各条线程之间计数器互不影响，独立存储，我们称这类内存区域为“线程私有”的内存。 </p><p>当执行的是java代码时，计数器记录的就是正在执行的虚拟机字节码指令的地址；如果是native方法，计数器值为空。</p><p>此处内存区域是<strong>唯一一个</strong>在Java虚拟机规范中没有规定任何内存溢出(OutOfMemoryError)情况的区域。</p><h2 id="二、Java虚拟机栈"><a href="#二、Java虚拟机栈" class="headerlink" title="二、Java虚拟机栈"></a>二、Java虚拟机栈</h2><p>虚拟机栈是线程私有的，它的生命周期和线程相同。虚拟机栈描述的是Java方法执行的内存模型：每个方法在执行的同时都会创建一个<code>栈帧（Stack Frame）</code>用于存储局部变量表、 操作数栈、 动态链接、 方法出口等信息。 每一个方法从调用直至执行完成的过程，就对应着一个栈帧在虚拟机栈中入栈到出栈的过程。 </p><p>常说的的Java内存区域分为堆内存（Heap）和栈内存(Stack)，这里的<strong>栈</strong>就是虚拟机栈，或者是虚拟机栈中局部变量表的部分。</p><p>所谓局部变量表，顾名思义，其中存放了编译期可以知道的各种基本数据类型（8种基本数据类型）、对象引用（reference类型，它不等同于对象本身，可能是一个<code>指向对象起始地址的引用指针</code>，也可能是<code>指向一个代表对象的句柄或其他与此对象相关的位置</code> ）和returnAddress类型(指向了一条字节码指令的地址 )。<code>局部变量表所需的内存空间在编译期间完成分配</code>，当进入一个方法时，这个方法需要在帧中分配多大的局部变量空间是完全确定的，在<code>方法运行期间不会改变局部变量表的大小</code>。 </p><p>Java虚拟机规范规定了两种此区域会发生的异常：</p><ul><li>StackOverflowError异常：线程请求的栈深度大于虚拟机所允许的深度 </li><li>OutOfMemoryError异常：如果虚拟机栈可以动态扩展（当前大部分虚拟机都可以动态扩展） ，如果扩展时无法申请到足够的内存 </li></ul><h2 id="三、本地方法栈"><a href="#三、本地方法栈" class="headerlink" title="三、本地方法栈"></a>三、本地方法栈</h2><p>本地方法栈（Native Method Stack）与虚拟机栈所发挥的作用是非常相似的，它们之间的区别不过是虚拟机栈为虚拟机执行Java方法（也就是字节码）服务，而本地方法栈则为虚拟机使用到的Native方法服务。 </p><p>这个可以说是Java为了妥协而产生的能够调用其他代码的产物，可以不需要深入理解。</p><h2 id="四、Java堆"><a href="#四、Java堆" class="headerlink" title="四、Java堆"></a>四、Java堆</h2><p>Java堆是虚拟机所管理的内存最大的一块，被所有线程所共享，虚拟机启动时自动创建。此内存区域主要目的是存放对象实例。根据Java虚拟机规范中描述，<code>所有的对象实例及数组都要在堆上分配</code>。但是随着技术的发展，JIT编译期日趋成熟，逃逸分析技术（后面介绍）逐渐成熟，栈上分配、标量替换优化技术等，所有对象分配在堆上也不是“绝对”了。</p><p>Java对既然存放了可以说是所有的对象，那么自然而然的，此处是垃圾收集器管理的主要区域。因此有时候Java堆也被称为“GC堆”。大部分的收集器都采用分代收集算法，所以Java堆还可以细分为新生代和老年代。其实还可以更加细分，其目的和作用不过是为了更加方便的跟快的分配和回收内存，与存放的内容无关，存放的都是对象实例。</p><p>Java堆可以是物理上不连续但逻辑上连续的内存空间。</p><h2 id="五、方法区"><a href="#五、方法区" class="headerlink" title="五、方法区"></a>五、方法区</h2><p>方法区也是各个线程共享的内存区域，用于存储已被虚拟机加载的<code>类信息、常量、静态变量、及时编译器编译后的代码</code>等数据。虽然Java虚拟机规范把方法区描述为堆的一个逻辑部分，但是它却有一个别名叫做Non-Heap（非堆），目的应该是与Java堆区分开来。 </p><p>对于常见的HotSpot虚拟机来说，方法区又称为“永久代（Permanent Generation)”，其原因是HotSpot虚拟机的设计团队选择<code>把GC分代收集扩展至方法区</code>，或者说<code>使用永久代来实现方法区</code>而已，这样HotSpot的垃圾收集器可以像管理Java堆一样管理这部分内存，能够省去专门为方法区编写内存管理代码的工作。  对于其他虚拟机（如J9和JRockit）来说，不存在永久代的概念。</p><p>目前来看，使用永久代来实现方法区，不是一个好的主意，因为容易遇到内存溢出问题（永久代有-XX：MaxPermSize的上限，J9和JRockit只要没有触碰到进程可用内存的上限，例如32位系统中的4GB，就不会出现问题 ）。在JDK1.7中的HotSpot中，已经把原本放在永久代的字符串常量池移除。</p><p>方法区的管理非常宽松，垃圾收集行为在此区域比较少见。这区域的内存回收目标主要是针对常量池的回收和对类型的卸载，但是类型卸载等条件非常苛刻，所以回收效果很差，但是又必须回收。根据Java虚拟机规范的规定，当方法区无法满足内存分配需求时，将抛出OutOfMemoryError异常。 </p><h2 id="六、运行时常量池"><a href="#六、运行时常量池" class="headerlink" title="六、运行时常量池"></a>六、运行时常量池</h2><p>运行时常量池（Runtime Constant Pool）是方法区的一部分。Class文件中除了有类的版本、 字段、 方法、 接口等描述信息外，还有一项信息是常量池（Constant Pool Table），用于存放<code>编译期生成的各种字面量和符号引用</code>，这部分内容将在类加载后进入方法区的运行时常量池中存放。 一般来说，除了保存Class文件中描述的<code>符号引用</code>外，还会把翻译出来的<code>直接引用</code>也存储在运行时常量池中。 </p><p>运行时常量池相对于Class文件常量池的另外一个重要特征是具备动态性，Java语言并不要求常量一定只有编译期才能产生，也就是并非预置入Class文件中常量池的内容才能进入方法区运行时常量池，<code>运行期间也可能将新的常量放入池中。</code></p><p>既然运行时常量池是方法区的一部分，自然受到方法区内存的限制，当常量池无法再申请到内存时会抛出OutOfMemoryError异常。 </p><h2 id="七、直接内存"><a href="#七、直接内存" class="headerlink" title="七、直接内存"></a>七、直接内存</h2><p>直接内存（Direct Memory）并不是虚拟机运行时数据区的一部分，也不是Java虚拟机规范中定义的内存区域。  </p><p>在JDK 1.4中新加入了NIO（New Input/Output）类，引入了一种基于通道（Channel）与缓冲区（Buffer）的I/O方式，它可以使用Native函数库直接分配堆外内存，然后通过一个存储在Java堆中的<code>DirectByteBuffer对象</code>作为这块内存的引用进行操作。 这样能在一些场景中显著提高性能，因为避免了在Java堆和Native堆中来回复制数据。本机直接内存的分配不会受到Java堆大小的限制，但是，既然是内存，肯定还是会受到本机总内存（包括RAM以及SWAP区或者分页文件）大小以及处理器寻址空间的限制。 </p><p> 服务器管理员在配置虚拟机参数时，会根据实际内存设置-Xmx等参数信息，但<code>经常忽略直接内存</code>，使得各个内存区域总和大于物理内存限制（包括物理的和操作系统级的限制），从而导致动态扩展时出现OutOfMemoryError异常。 </p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> JVM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> JVM </tag>
+            
+            <tag> 内存管理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>hello3</title>
       <link href="/2019/11/13/hello3/"/>
       <url>/2019/11/13/hello3/</url>
