@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-14T07:43:03.659Z</updated>
+  <updated>2019-11-14T07:45:10.607Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>JVM参数类型分类</title>
+    <link href="http://yoursite.com/2019/11/14/java-jvm-3/"/>
+    <id>http://yoursite.com/2019/11/14/java-jvm-3/</id>
+    <published>2019-11-14T07:44:22.000Z</published>
+    <updated>2019-11-14T07:45:10.607Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;深入理解Java虚拟机读书笔记-3-JVM参数类型分类&quot;&gt;&lt;a href=&quot;#深入理解Java虚拟机读书笔记-3-JVM参数类型分类&quot; class=&quot;headerlink&quot; title=&quot;深入理解Java虚拟机读书笔记(3):
+        
+      
+    
+    </summary>
+    
+    
+      <category term="JVM" scheme="http://yoursite.com/categories/JVM/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+      <category term="JVM" scheme="http://yoursite.com/tags/JVM/"/>
+    
+  </entry>
   
   <entry>
     <title>深入理解HotSpot虚拟机对象</title>

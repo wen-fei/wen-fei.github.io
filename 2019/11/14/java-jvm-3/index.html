@@ -4,8 +4,13 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="深入理解HotSpot虚拟机对象, 腾云">
-    <meta name="description" content="深入理解Java虚拟机读书笔记(2): 深入理解HotSpot虚拟机对象为了理解虚拟机中数据的细节，比如如何创建、如何布局以及如何访问，必须具体到某一虚拟机和某一个内存区域。此处深入探讨HotSpot虚拟机在Java堆中对象分配、布局和访问">
+    <meta name="keywords" content="JVM参数类型分类, 腾云">
+    <meta name="description" content="深入理解Java虚拟机读书笔记(3): JVM参数类型分类JVM有很多参数，一般可以分为三大类：标准参数、X参数和XX参数
+标准参数所谓标准参数，即一般化参数，往往是固定不变的，比如以下参数：
+
+-help
+
+-version 显式虚拟机类">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -13,7 +18,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>深入理解HotSpot虚拟机对象 | 腾云</title>
+    <title>JVM参数类型分类 | 腾云</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -285,13 +290,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        深入理解HotSpot虚拟机对象
+                        JVM参数类型分类
                     </div>
                 </div>
             </div>
@@ -411,10 +416,6 @@
                                 <span class="chip bg-color">JVM</span>
                             </a>
                         
-                            <a href="/tags/HotSpot/">
-                                <span class="chip bg-color">HotSpot</span>
-                            </a>
-                        
                     </div>
                     
                 </div>
@@ -442,14 +443,14 @@
                     
                     <div class="info-break-policy">
                         <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                        2.6k
+                        978
                     </div>
                     
 
                     
                     <div class="info-break-policy">
                         <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                        9 分
+                        3 分
                     </div>
                     
                 
@@ -465,44 +466,51 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="深入理解Java虚拟机读书笔记-2-深入理解HotSpot虚拟机对象"><a href="#深入理解Java虚拟机读书笔记-2-深入理解HotSpot虚拟机对象" class="headerlink" title="深入理解Java虚拟机读书笔记(2): 深入理解HotSpot虚拟机对象"></a>深入理解Java虚拟机读书笔记(2): 深入理解HotSpot虚拟机对象</h1><p>为了理解虚拟机中数据的细节，比如如何创建、如何布局以及如何访问，必须具体到某一虚拟机和某一个内存区域。此处深入探讨HotSpot虚拟机在Java堆中对象分配、布局和访问的全过程。</p>
-<h2 id="一、对象的创建"><a href="#一、对象的创建" class="headerlink" title="一、对象的创建"></a>一、对象的创建</h2><p>反映到Java语言中，对象的创建通常不过是一个<code>new</code>关键字，然而反映到底层虚拟机上是如何呢？可以概括为以下三步：</p>
+                <h1 id="深入理解Java虚拟机读书笔记-3-JVM参数类型分类"><a href="#深入理解Java虚拟机读书笔记-3-JVM参数类型分类" class="headerlink" title="深入理解Java虚拟机读书笔记(3): JVM参数类型分类"></a>深入理解Java虚拟机读书笔记(3): JVM参数类型分类</h1><p>JVM有很多参数，一般可以分为三大类：标准参数、X参数和XX参数</p>
+<h2 id="标准参数"><a href="#标准参数" class="headerlink" title="标准参数"></a>标准参数</h2><p>所谓标准参数，即一般化参数，往往是固定不变的，比如以下参数：</p>
 <ul>
-<li><p><strong>类加载：</strong> 虚拟机遇到一个new指令时，首先将去检查这个指令的参数是否能在常量池中定位到一个<code>类的符号引用</code>，并且检查这个符号引用代表的类<code>是否已被加载、 解析和初始化过</code>。 如果没有，那必须先执行相应的类加载过程。</p>
+<li><p>-help</p>
 </li>
-<li><p><strong>分配内存：</strong> 类加载通过后，虚拟机为新生对象分配内存。对象所需内存的大小在类加载完成后便可完全确定，为对象分配空间的任务等同于把一块确定大小的内存从Java堆中划分出来。 这里一般有两种划分方式：</p>
-<ul>
-<li>Java堆中内存是绝对规整的，所有用过的内存都放在一边，空闲的内存放在另一边，中间放着一个指针作为分界点的指示器，那所分配内存就仅仅是<code>把那个指针向空闲空间那边挪动一段与对象大小相等的距离</code>，这种分配方式称为<code>“指针碰撞”(Bump the Pointer)</code>。</li>
-<li>Java堆中内存并不是规整的，已使用的内存和空闲的内存相互交错，那就没有办法简单地进行指针碰撞了，虚拟机就必须维护一个列表，<code>记录哪些内存块是可用的</code>，在分配的时候<code>从列表中找到一块足够大的空间划分给对象实例</code>，并更新列表上的记录，这种分配方式称为<code>“空闲列表”（Free List）</code>。 </li>
-</ul>
-<p>选择哪种分配方式<code>由Java堆是否规整决定</code>，而Java堆是否规整又由所采用的垃圾收集器<code>是否带有压缩整理功能决定</code>。 因此，在使用Serial、 ParNew等带Compact过程的收集器时，系统采用的分配算法是指针碰撞，而使用CMS这种基于Mark-Sweep算法的收集器时，通常采用空闲列表。 </p>
-<p>在分配内存时，另外一个需要考虑的问题是线程安全性。对象创建时一个非常频繁的行为，即使是仅仅修改一个指针所指向的位置，在并发情况下也并不是线程安全的。例如可能出现正在给对象A分配内存，指针还没来得及修改，对象B又同时使用了原来的指针来分配内存的情况。  针对此问题有两种解决方案：</p>
-<ul>
-<li>对分配内存空间的动作进行同步处理：即虚拟机采用CAS+失败重试的方式保证更新操作的原子性</li>
-<li>把内存分配的动作按照线程划分在不同得空间中进行，即每个线程在Java堆中预先分配一小块内存，称为<code>本地线程分配缓冲（Thread Local Allocation Buffer,TLAB）</code> 。这有点类似于线程封闭技术，哪个线程要分配内存，就在哪个线程的TLAB上分配，只有TLAB用完并分配新的TLAB时，才需要同步锁定。虚拟机是否使用TLAB，可以通过-XX：+/-UseTLAB参数来设定。 </li>
-</ul>
+<li><p>-version 显式虚拟机类型 当前版本号等等<br>这里注意JVM默认开启了mixmode混合模式，这意味着JVM在运行时可以动态的把字节码编译成本地代码</p>
 </li>
-<li><p><strong>初始化：</strong> 内存分配完成后，需要对分配到的内存空间都进行初始化为<code>零值</code>（不包括对象头），如果使用TLAB，这一工作过程也可以提前至TLAB分配时进行。 这一步的动作，保证了对象的实例字段在Java代码中可以<code>不赋初值就可以直接使用</code>，程序能访问到这些字段的数据类型所对应的零值。 </p>
+<li><p>-server、-client</p>
+<p>-server  默认为堆提供了一个更大的空间和并行的垃圾收集器，并且在运行时可以更大程度的优化代码</p>
+<p>-client   客户端虚拟机有较小的默认堆内存，可以缩短JVM启动的时间和占用更少的内存，客户端的JVM只有在32位操作系统中才有</p>
+<blockquote>
+<p>注意</p>
+</blockquote>
+<p>1 ) 从JDK5开始 当应用启动时会检测当前的运行环境是否是服务器 如果是服务器就使用Server JVM 这是为了提升性能，一般来说Server JVM启动比Client JVM慢，原因是使用的是重量级的虚拟机，但是内部进行了很多优化，而Client JVM使用的是轻量级的JVM，当服务稳定运行后还是Server JVM的速度更快一些<br>2 ) 在JDK6中 Server JVM要求至少双核CPU和2GB物理内存</p>
+<p>3 ) 在32位操作系统上 JDK可以运行Server JVM 但是JRE只能运行Client JVM</p>
 </li>
-<li><p><strong>对象头设置</strong>：上面的初始化仅仅是通用的设置并且不包括对象头的设置，虚拟机接下来还要对对象进行更加丰富的设置，例如这个对象是哪个类的实例、 如何才能找到类的元数据信息、 对象的哈希码、 对象的GC分代年龄等信息。 这些信息存放在对象的<code>对象头（Object Header）</code>之中。 根据虚拟机当前的运行状态的不同，如是否启用偏向锁等，对象头会有不同的设置方式。 </p>
-</li>
-<li><p><strong>对象init：</strong> 完成上面的工作以后，在虚拟机中其实一个对象已经产生了，但是从Java代码来看，其实<init>方法还没有执行，此时所有的字段还停留在初始化时设置的零值。一般来说（由字节码中是否跟随invokespecial指令所决定），执行new指令之后会接着执行＜init＞方法，<code>把对象按照程序员的意愿进行初始化</code>，这样一个真正可用的对象才算完全产生出来。 </init></p>
+<li><p>-cp、-classpath</p>
 </li>
 </ul>
-<p>至此，一个对象创建完成。那么，对象在内存中又是如何布局的呢？</p>
-<h2 id="二、对象的内存布局"><a href="#二、对象的内存布局" class="headerlink" title="二、对象的内存布局"></a>二、对象的内存布局</h2><p>在HotSpot虚拟机中，对象在内存中存储的布局可以分为3块区域：<code>对象头（Header）、实例数据（Instance Data）</code>和<code>对齐填充（Padding）</code>。 </p>
-<h3 id="2-1-对象头"><a href="#2-1-对象头" class="headerlink" title="2.1 对象头"></a>2.1 对象头</h3><p>对象头包括两部分信息，即对象运行时信息和类型指针。</p>
-<p>第一部分用于存储对象自身的运行时数据，如哈希码（HashCode）、GC分代年龄、 锁状态标志、 线程持有的锁、 偏向线程ID、 偏向时间戳等，这部分数据的长度在32位和64位的虚拟机（未开启压缩指针）中分别为32bit和64bit，官方称它为<code>“Mark Word”</code>。  对象头信息是与对象自身定义的数据无关的额外存储成本，考虑到虚拟机的空间效率，Mark Word被设计成一个非固定的数据结构以便在极小的空间内存储尽量多的信息，它会根据对象的状态复用自己的存储空间。  </p>
-<p>对象头的另外一部分是类型指针，即<code>对象指向它的类元数据的指针</code>，虚拟机<code>通过这个指针来确定这个对象是哪个类的实例</code>。  并不是所有的虚拟机实现都必须在对象数据上保留类型指针，换句话说，<code>查找对象的元数据信息并不一定要经过对象本身。</code>另外，如果对象是一个Java数组，那在对象头中还必须有一块用于记录数组长度的数据，因为虚拟机可以通过普通Java对象的元数据信息确定Java对象的大小，但是<code>从数组的元数据中却无法确定数组的大小</code>。 </p>
-<h3 id="2-2-实例数据"><a href="#2-2-实例数据" class="headerlink" title="2.2 实例数据"></a>2.2 实例数据</h3><p>实例数据部分是对象真正存储的有效信息，也是在程序代码中所定义的各种类型的字段内容，包括子类和父类的。关于存储顺序，受到虚拟机分配策略参数和字段在源码中定义顺序的影响。一般来说，相同宽度的字段总是被分配到一起，在此前提下，父类中定义的变量会出现在子类之前。如果CompactFields参数值为true（默认为true），那么子类之中较窄的变量也可能会插入到父类变量的空隙之中。 </p>
-<h3 id="2-3-对齐填充"><a href="#2-3-对齐填充" class="headerlink" title="2.3 对齐填充"></a>2.3 对齐填充</h3><p>这一部分不是必然存在的，仅仅起着占位符的作用，没有什么实际含义。由于HotSpot VM的自动内存管理系统要求<code>对象起始地址必须是8字节的整数倍</code>，换句话说，就是<code>对象的大小必须是8字节的整数倍</code>。 而对象头部分正好是8字节的倍数（1倍或者2倍），因此，<code>当对象实例数据部分没有对齐时，就需要通过对齐填充来补全</code>。 </p>
-<h2 id="三、对象的访问"><a href="#三、对象的访问" class="headerlink" title="三、对象的访问"></a>三、对象的访问</h2><p>Java程序通过<code>栈上的reference</code>数据来操作<code>堆上的具体对象</code>。由于reference类型在Java虚拟机规范中只规定了一个指向对象的引用，并没有定义这个引用应该通过何种方式去定位、 访问堆中的对象的具体位置，所以对象访问方式也是取决于虚拟机实现而定的。 目前主流的访问方式有使用<code>句柄</code>和<code>直接指针</code>两种。 关于句柄，可以参考知乎的这个话题<a href="https://www.zhihu.com/question/27656256/answer/37556901" target="_blank" rel="noopener">句柄是什么？</a></p>
-<h3 id="句柄访问"><a href="#句柄访问" class="headerlink" title="句柄访问"></a>句柄访问</h3><p>如果使用句柄访问，Java堆中会划分出一块内存来作为句柄池，reference中存储的就是对象的句柄地址，而句柄中包含了对象实例数据与类型数据各自的具体地址信息。如下图所示：</p>
-<p><img src="C:%5CUsers%5Ctenyun%5CDesktop%5C%E6%89%BE%E5%B7%A5%E4%BD%9C%5C%E7%AC%94%E8%AE%B0%5Cimgs%5C1546826004438.png" alt="1546826004438"></p>
-<h3 id="直接指针访问"><a href="#直接指针访问" class="headerlink" title="直接指针访问"></a>直接指针访问</h3><p>如果使用直接指针访问，那么Java堆对象的布局中就必须考虑如何放置访问<code>类型数据</code>的相关信息，而reference中存储的直接就是对象地址，如下图所示：</p>
-<p><img src="C:%5CUsers%5Ctenyun%5CDesktop%5C%E6%89%BE%E5%B7%A5%E4%BD%9C%5C%E7%AC%94%E8%AE%B0%5Cimgs%5C1546826074782.png" alt="1546826074782"></p>
-<p>这两种对象访问方式各有优势，使用句柄来访问的最大好处就是reference中存储的是稳定的句柄地址，在对象被移动（垃圾收集时移动对象是非常普遍的行为）时只会改变句柄中的实例数据指针，而reference本身不需要修改。 使用直接指针访问方式的最大好处就是速度更快，它节省了一次指针定位的时间开销，由于对象的访问在Java中非常频繁，因此这类开销积少成多后也是一项非常可观的执行成本。 </p>
-<p>对于Hotspot而言，使用的是直接指针访问。</p>
+<h2 id="X参数"><a href="#X参数" class="headerlink" title="X参数"></a>X参数</h2><p>X参数是非标准化参数，在java的各个jdk版本中可能会发生微小的变化，比如如下几个常用的：</p>
+<ul>
+<li>-Xlint：解释执行, int是interpretation的简称，翻译解释的意思，意味着强制JVM执行所有的字节码，这会降低运行速度[10倍左右]</li>
+<li>-Xcomp：comp是Compile的简称，编译的意思第一次使用就编译成本地代码，从而带来最大程度的优化，虽然比-Xint的效率要高，但是它<code>没有让JVM启动JIT编译器的全部功能</code>， JIT编译器一般会在运行时创建方法使用文件，然后一步步的优化每个方法，因此该指令还是会造成一定的效率衰减</li>
+<li>-Xmixed：混合模式，JVM自己来决定是否编译成本地代码，默认开启了混合模式，因此无需显式的指定</li>
+</ul>
+<p>Java是解释执行的，但是虚拟机里JIT即时编译的部分，可以把java代码转换成本地代码，上面的参数就是控制编译本地代码的参数。</p>
+<h2 id="XX参数"><a href="#XX参数" class="headerlink" title="XX参数"></a>XX参数</h2><p>XX参数也是一种非标准化的参数，用户可以自己设置，JVM调优和debug都是用这些参数，主要分为以下两大类：</p>
+<ul>
+<li>Boolean类型</li>
+</ul>
+<p>格式：-XX:[+-]<name>方括号里面的+-表示启用或者禁用name属性</name></p>
+<p>比如：-XX:+UseConcMarkSweepGC 表示穷CMS垃圾收集器 </p>
+<p>​    -XX:+UseG1GC等</p>
+<ul>
+<li>非Boolean类型</li>
+</ul>
+<p>此类型一般是key-value类型</p>
+<p>格式：-XX:<name>=<value>表示name属性的值是value</value></name></p>
+<p>比如：XX:MaxGCPauseMillis=500 设置GC收集暂停时间为500</p>
+<h2 id="特例"><a href="#特例" class="headerlink" title="特例"></a>特例</h2><p>还有一些非常常用的参数，比如-Xmx -Xms等，看个以为是X参数，其实是XX参数</p>
+<p>-Xms 等价于 -XX:InitialHeapSize  初始化的堆大小</p>
+<p>-Xmx 等价于 -XX:MaxHeapSize    最大化的堆大小</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>JVM参数非常多，但一般使用的是XX参数居多，用于调优和debug错误。具体使用哪些参数，需要具体问题具体分析，目前jdk自带的虚拟机实现都是HotSpot，可以查阅相关文档。</p>
+<p>也可以下载某个知名论坛整理的文档，<a href="http://disq.us/url?url=http%3A%2F%2Ffiles.zeroturnaround.com%2Fpdf%2Fzt_JVM-options-cheat-sheet.pdf%3AsfOsGCixViJ6_yNr5059YY8qq7g&amp;cuid=344030" target="_blank" rel="noopener">下载地址</a></p>
+<p><img src="https://zeroturnaround.com/wp-content/uploads/2016/12/JVM-Options-cheat-sheet-v2.png" alt="img"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -683,9 +691,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《深入理解HotSpot虚拟机对象》
+                    《JVM参数类型分类》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/14/java-jvm-2/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/14/java-jvm-3/" property="cc:attributionName"
                rel="cc:attributionURL">
                 TenYun
             </a> 采用
@@ -725,9 +733,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/11/14/java-jvm-3/">
                     <div class="card-image">
@@ -745,9 +754,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -760,6 +769,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -782,19 +792,19 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/14/java-jvm-1/">
+                <a href="/2019/11/14/java-jvm-2/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="内存管理重要概念">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="深入理解HotSpot虚拟机对象">
                         
-                        <span class="card-title">内存管理重要概念</span>
+                        <span class="card-title">深入理解HotSpot虚拟机对象</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Java虚拟机内存管理重要概念
+                            深入理解HotSpot虚拟机对象
                         
                     </div>
                     <div class="publish-info">
@@ -824,8 +834,8 @@
                         <span class="chip bg-color">JVM</span>
                     </a>
                     
-                    <a href="/tags/内存管理/">
-                        <span class="chip bg-color">内存管理</span>
+                    <a href="/tags/HotSpot/">
+                        <span class="chip bg-color">HotSpot</span>
                     </a>
                     
                 </div>

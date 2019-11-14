@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>JVM参数类型分类</title>
+      <link href="/2019/11/14/java-jvm-3/"/>
+      <url>/2019/11/14/java-jvm-3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="深入理解Java虚拟机读书笔记-3-JVM参数类型分类"><a href="#深入理解Java虚拟机读书笔记-3-JVM参数类型分类" class="headerlink" title="深入理解Java虚拟机读书笔记(3): JVM参数类型分类"></a>深入理解Java虚拟机读书笔记(3): JVM参数类型分类</h1><p>JVM有很多参数，一般可以分为三大类：标准参数、X参数和XX参数</p><h2 id="标准参数"><a href="#标准参数" class="headerlink" title="标准参数"></a>标准参数</h2><p>所谓标准参数，即一般化参数，往往是固定不变的，比如以下参数：</p><ul><li><p>-help</p></li><li><p>-version 显式虚拟机类型 当前版本号等等<br>这里注意JVM默认开启了mixmode混合模式，这意味着JVM在运行时可以动态的把字节码编译成本地代码</p></li><li><p>-server、-client</p><p>-server  默认为堆提供了一个更大的空间和并行的垃圾收集器，并且在运行时可以更大程度的优化代码</p><p>-client   客户端虚拟机有较小的默认堆内存，可以缩短JVM启动的时间和占用更少的内存，客户端的JVM只有在32位操作系统中才有</p><blockquote><p>注意</p></blockquote><p>1 ) 从JDK5开始 当应用启动时会检测当前的运行环境是否是服务器 如果是服务器就使用Server JVM 这是为了提升性能，一般来说Server JVM启动比Client JVM慢，原因是使用的是重量级的虚拟机，但是内部进行了很多优化，而Client JVM使用的是轻量级的JVM，当服务稳定运行后还是Server JVM的速度更快一些<br>2 ) 在JDK6中 Server JVM要求至少双核CPU和2GB物理内存</p><p>3 ) 在32位操作系统上 JDK可以运行Server JVM 但是JRE只能运行Client JVM</p></li><li><p>-cp、-classpath</p></li></ul><h2 id="X参数"><a href="#X参数" class="headerlink" title="X参数"></a>X参数</h2><p>X参数是非标准化参数，在java的各个jdk版本中可能会发生微小的变化，比如如下几个常用的：</p><ul><li>-Xlint：解释执行, int是interpretation的简称，翻译解释的意思，意味着强制JVM执行所有的字节码，这会降低运行速度[10倍左右]</li><li>-Xcomp：comp是Compile的简称，编译的意思第一次使用就编译成本地代码，从而带来最大程度的优化，虽然比-Xint的效率要高，但是它<code>没有让JVM启动JIT编译器的全部功能</code>， JIT编译器一般会在运行时创建方法使用文件，然后一步步的优化每个方法，因此该指令还是会造成一定的效率衰减</li><li>-Xmixed：混合模式，JVM自己来决定是否编译成本地代码，默认开启了混合模式，因此无需显式的指定</li></ul><p>Java是解释执行的，但是虚拟机里JIT即时编译的部分，可以把java代码转换成本地代码，上面的参数就是控制编译本地代码的参数。</p><h2 id="XX参数"><a href="#XX参数" class="headerlink" title="XX参数"></a>XX参数</h2><p>XX参数也是一种非标准化的参数，用户可以自己设置，JVM调优和debug都是用这些参数，主要分为以下两大类：</p><ul><li>Boolean类型</li></ul><p>格式：-XX:[+-]<name>方括号里面的+-表示启用或者禁用name属性</name></p><p>比如：-XX:+UseConcMarkSweepGC 表示穷CMS垃圾收集器 </p><p>​    -XX:+UseG1GC等</p><ul><li>非Boolean类型</li></ul><p>此类型一般是key-value类型</p><p>格式：-XX:<name>=<value>表示name属性的值是value</value></name></p><p>比如：XX:MaxGCPauseMillis=500 设置GC收集暂停时间为500</p><h2 id="特例"><a href="#特例" class="headerlink" title="特例"></a>特例</h2><p>还有一些非常常用的参数，比如-Xmx -Xms等，看个以为是X参数，其实是XX参数</p><p>-Xms 等价于 -XX:InitialHeapSize  初始化的堆大小</p><p>-Xmx 等价于 -XX:MaxHeapSize    最大化的堆大小</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>JVM参数非常多，但一般使用的是XX参数居多，用于调优和debug错误。具体使用哪些参数，需要具体问题具体分析，目前jdk自带的虚拟机实现都是HotSpot，可以查阅相关文档。</p><p>也可以下载某个知名论坛整理的文档，<a href="http://disq.us/url?url=http%3A%2F%2Ffiles.zeroturnaround.com%2Fpdf%2Fzt_JVM-options-cheat-sheet.pdf%3AsfOsGCixViJ6_yNr5059YY8qq7g&amp;cuid=344030" target="_blank" rel="noopener">下载地址</a></p><p><img src="https://zeroturnaround.com/wp-content/uploads/2016/12/JVM-Options-cheat-sheet-v2.png" alt="img"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> JVM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> JVM </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>深入理解HotSpot虚拟机对象</title>
       <link href="/2019/11/14/java-jvm-2/"/>
       <url>/2019/11/14/java-jvm-2/</url>
