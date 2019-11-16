@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-14T07:47:14.769Z</updated>
+  <updated>2019-11-16T06:43:15.564Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Git开发相关操作记录</title>
+    <link href="http://yoursite.com/2019/11/16/git-notes/"/>
+    <id>http://yoursite.com/2019/11/16/git-notes/</id>
+    <published>2019-11-16T06:16:33.000Z</published>
+    <updated>2019-11-16T06:43:15.564Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;如何对开源项目贡献代码&quot;&gt;&lt;a href=&quot;#如何对开源项目贡献代码&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/categories/Git/"/>
+    
+    
+      <category term="Git" scheme="http://yoursite.com/tags/Git/"/>
+    
+  </entry>
   
   <entry>
     <title>JDK自带工具详解汇总</title>
