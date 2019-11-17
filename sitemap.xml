@@ -2,30 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/11/13/papers-note-14/</loc>
+    
+    <lastmod>2019-11-17T07:37:08.107Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/11/14/java-jvm-4/</loc>
     
-    <lastmod>2019-11-16T07:19:31.889Z</lastmod>
+    <lastmod>2019-11-17T07:36:34.437Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/11/14/java-jvm-3/</loc>
     
-    <lastmod>2019-11-16T07:19:25.586Z</lastmod>
+    <lastmod>2019-11-17T07:36:08.526Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/11/14/java-jvm-2/</loc>
     
-    <lastmod>2019-11-16T07:19:20.150Z</lastmod>
+    <lastmod>2019-11-17T07:35:56.922Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/11/14/java-jvm-1/</loc>
     
-    <lastmod>2019-11-16T07:19:14.358Z</lastmod>
+    <lastmod>2019-11-17T07:35:45.056Z</lastmod>
     
   </url>
   
@@ -33,13 +40,6 @@
     <loc>http://yoursite.com/2019/11/16/git-notes/</loc>
     
     <lastmod>2019-11-16T06:58:48.734Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/11/13/papers-note-14/</loc>
-    
-    <lastmod>2019-11-13T14:31:56.987Z</lastmod>
     
   </url>
   
