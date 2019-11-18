@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/11/16/git-notes/</loc>
+    
+    <lastmod>2019-11-18T07:31:49.464Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/11/18/graph-embeddings-papers-list/</loc>
     
     <lastmod>2019-11-18T07:29:46.561Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://yoursite.com/2019/11/13/papers-note-14/</loc>
     
     <lastmod>2019-11-17T07:37:08.107Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/11/16/git-notes/</loc>
-    
-    <lastmod>2019-11-16T06:58:48.734Z</lastmod>
     
   </url>
   
