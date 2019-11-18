@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-16T06:58:48.734Z</updated>
+  <updated>2019-11-18T02:24:20.974Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>graph-embeddings-papers-list</title>
+    <link href="http://yoursite.com/2019/11/18/graph-embeddings-papers-list/"/>
+    <id>http://yoursite.com/2019/11/18/graph-embeddings-papers-list/</id>
+    <published>2019-11-18T02:19:01.000Z</published>
+    <updated>2019-11-18T02:24:20.974Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;awesome-network-embedding&quot;&gt;&lt;a href=&quot;#awesome-network-embedding&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Graph Embeddings" scheme="http://yoursite.com/categories/Graph-Embeddings/"/>
+    
+    
+      <category term="papers" scheme="http://yoursite.com/tags/papers/"/>
+    
+      <category term="graph embedding" scheme="http://yoursite.com/tags/graph-embedding/"/>
+    
+  </entry>
   
   <entry>
     <title>Git开发相关操作记录</title>
