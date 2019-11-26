@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>网络表示学习论文用到的数据集</title>
+      <link href="/2019/11/26/graph-embeddings-experiment-dataset/"/>
+      <url>/2019/11/26/graph-embeddings-experiment-dataset/</url>
+      
+        <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>将看过的论文中实验部分用到的相关数据集进行了梳理，方便查阅。</p><blockquote><p>HARP: Hierarchical Representation Learning for Networks </p></blockquote><h3 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h3><ul><li>DBLP (Perozzi et al. 2017) –计算机相关科研人员论文合作图。标签表明研究人员发表其工作的研究领域。该数据集包括四个研究领域:DB、DM、IR和ML。29199个顶点，133664条边，4种类别。</li><li>BlogCatalog (Tang and Liu 2009)– BlogCatalog网站上用户之间的社会关系网络。标签代表博客作者发布的类别。</li><li>CiteSeer (Sen et al. 2008)– CiteSeer是计算机科学出版物之间的引用网络。标签标明论文所属的研究领域，论文分为6类:agent, AI, DB, IR, ML, HCI。</li></ul><h3 id="评测实验"><a href="#评测实验" class="headerlink" title="评测实验"></a>评测实验</h3><h4 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h4><p>参考的DeepWalk论文的实验步骤，选择多标签分类作为下游任务，基本步骤如下：</p><ol><li>获得输入图的图表示学习结果</li><li>然后从图中随机抽取一部分节点及其标签作为训练数据，预测剩余节点的标签</li><li>训练一个obe-vs-rest的LR(L2)模型(可以替换其他模型，但这个简单方便)</li><li>重复试验10次，保证结果的合理性。评测指标为average Macro F1、Micro F1和accuracy。</li></ol><p>可以选取不同比例的标签数据(论文中0.02-0.10，每次递增0.01)，重复试验，可以画出增长趋势图，给出更直观的对比结果。</p><h4 id="可扩展性"><a href="#可扩展性" class="headerlink" title="可扩展性"></a>可扩展性</h4><p>从以下几点说明：</p><ol><li>引入HARP不会增加复杂度</li><li>比较前后运行时间，只带来10%的时间开销(在Erdos-Renyi graphs 上进行实验)</li></ol><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>graph-embeddings-papers-list</title>
       <link href="/2019/11/18/graph-embeddings-papers-list/"/>
       <url>/2019/11/18/graph-embeddings-papers-list/</url>

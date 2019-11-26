@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-18T07:29:46.561Z</updated>
+  <updated>2019-11-26T11:51:56.271Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>网络表示学习论文用到的数据集</title>
+    <link href="http://yoursite.com/2019/11/26/graph-embeddings-experiment-dataset/"/>
+    <id>http://yoursite.com/2019/11/26/graph-embeddings-experiment-dataset/</id>
+    <published>2019-11-26T06:13:52.000Z</published>
+    <updated>2019-11-26T11:51:56.271Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;将看过的论文中实验部分用到的相关数据集进行了梳理，方便查阅。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;HARP: Hierarchical
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>graph-embeddings-papers-list</title>
