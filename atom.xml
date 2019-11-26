@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-26T11:51:56.271Z</updated>
+  <updated>2019-11-26T11:53:42.398Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/11/26/graph-embeddings-experiment-dataset/"/>
     <id>http://yoursite.com/2019/11/26/graph-embeddings-experiment-dataset/</id>
     <published>2019-11-26T06:13:52.000Z</published>
-    <updated>2019-11-26T11:51:56.271Z</updated>
+    <updated>2019-11-26T11:53:42.398Z</updated>
     
     <summary type="html">
     
@@ -38,6 +38,10 @@
     </summary>
     
     
+      <category term="papers" scheme="http://yoursite.com/categories/papers/"/>
+    
+    
+      <category term="Graph Embeddings" scheme="http://yoursite.com/tags/Graph-Embeddings/"/>
     
   </entry>
   
