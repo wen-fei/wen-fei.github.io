@@ -1,0 +1,1377 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="vim-base-control, Java 机器学习 自然语言处理 表示学习">
+    <meta name="description" content="命令历史以:和/开头的命令都有历史纪录，可以首先键入:或/然后按上下箭头来选择某个历史命令。
+启动vim在命令行窗口中输入以下命令即可
+
+vim 直接启动vim
+vim filename 打开vim并创建名为filename的文件
+
+文件命">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>vim-base-control | 腾云</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/5.11.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/aos/2.3.4/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/animate.css/3.5.1/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/lightgallery/1.6.11/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+    
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">腾云</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">腾云</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/wen-fei" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/wen-fei" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://upload-images.jianshu.io/upload_images/1464813-64f174231649a882?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        vim-base-control
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/VIM/">
+                                <span class="chip bg-color">VIM</span>
+                            </a>
+                        
+                            <a href="/tags/基本命令/">
+                                <span class="chip bg-color">基本命令</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/VIM/" class="post-category">
+                                VIM
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-12-02
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    2.6k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    9 分
+                </div>
+                
+				
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+            
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="命令历史"><a href="#命令历史" class="headerlink" title="命令历史"></a>命令历史</h2><p>以<code>:</code>和<code>/</code>开头的命令都有历史纪录，可以首先键入:或/然后按上下箭头来选择某个历史命令。</p>
+<h2 id="启动vim"><a href="#启动vim" class="headerlink" title="启动vim"></a>启动vim</h2><p>在命令行窗口中输入以下命令即可</p>
+<ul>
+<li><code>vim</code> 直接启动vim</li>
+<li><code>vim filename</code> 打开vim并创建名为filename的文件</li>
+</ul>
+<h2 id="文件命令"><a href="#文件命令" class="headerlink" title="文件命令"></a>文件命令</h2><ul>
+<li>打开单个文件<code>vim file</code> </li>
+<li>同时打开多个文件<code>vim file1 file2 file3 ...</code> </li>
+<li>在vim窗口中打开一个新文件<code>:open file</code> </li>
+<li>在新窗口中打开文件<code>:split file</code> </li>
+<li>切换到下一个文件<code>:bn</code> </li>
+<li>切换到上一个文件<code>:bp</code> </li>
+<li>查看当前打开的文件列表，当前正在编辑的文件会用[]括起来。<code>:args</code> </li>
+<li>打开远程文件，比如ftp或者share folder<code>:e ftp://192.168.10.76/abc.txt</code>或者<code>:e \\qadrive\test\1.txt</code> </li>
+</ul>
+<h2 id="vim的模式"><a href="#vim的模式" class="headerlink" title="vim的模式"></a>vim的模式</h2><ul>
+<li>正常模式（按<code>Esc</code>或Ctrl+[进入） 左下角显示文件名或为空</li>
+<li>插入模式（按<code>i</code>键进入） 左下角显示–INSERT–</li>
+<li>可视模式（不） 左下角显示–VISUAL–</li>
+<li>导航命令</li>
+</ul>
+<h3 id="移动命令"><a href="#移动命令" class="headerlink" title="移动命令"></a>移动命令</h3><ul>
+<li><code>^</code>:移动光标到行首；</li>
+<li><code>$</code>:移动光标到行尾；</li>
+<li><code>ctrl-b</code>:类似于键盘上的”PgUp”(b为backword)</li>
+<li><code>ctrl-f</code>：类似于键盘上的”PgDn”(f为forword)</li>
+<li><code>G</code>：移动到末行；</li>
+<li><code>1G</code>：移动到首行；</li>
+<li><code>50G</code>：移动到50行；</li>
+<li><code>H</code>：移动到当前窗口的首行；</li>
+<li><code>M</code>：移动到当前窗口的中间位置；</li>
+<li><code>L</code>：移动光标到当前窗口的最后一行；</li>
+<li><code>w</code>:光标移动到下一个单词的词首；注：对于中文，连续的多个汉字作为一个word。</li>
+<li><code>2w</code>:重复执行w操作2次；</li>
+<li><code>e</code>:光标移动到下一个单词的词尾；</li>
+<li><code>5e</code>:重复执行e操作5次；</li>
+<li><code>b</code>：向前移动光标，移动到前一个单词的词首；</li>
+</ul>
+<h4 id="句字-sentences-直接移动操作："><a href="#句字-sentences-直接移动操作：" class="headerlink" title="句字(sentences)直接移动操作："></a>句字(sentences)直接移动操作：</h4><ul>
+<li><code>)</code>:光标移动到下一句；</li>
+<li><code>(</code>:光标移动到上一句；</li>
+<li><code>3)</code>:光标移动到向下3句</li>
+</ul>
+<h4 id="段落（paragraphs）直接移动操作："><a href="#段落（paragraphs）直接移动操作：" class="headerlink" title="段落（paragraphs）直接移动操作："></a>段落（paragraphs）直接移动操作：</h4><ul>
+<li><code>{</code>:向上移动一个段落；</li>
+<li><code>}</code>:向下移动一个段落</li>
+<li><code>3}</code>:向下移动3个段落</li>
+</ul>
+<p>更多操作在vim Normal模式下输入 <code>:help cursor-motions</code></p>
+<p><img src="https:////upload-images.jianshu.io/upload_images/1464813-64f174231649a882?imageMogr2/auto-orient/strip%7CimageView2/2/w/1200/format/webp" alt="img"></p>
+<p>vim</p>
+<p><a href="https://link.jianshu.com?t=http://blog.csdn.net/richerg85/article/details/17636827" target="_blank" rel="noopener">http://blog.csdn.net/richerg85/article/details/17636827</a></p>
+<h3 id="vim-快速选中并复制粘贴替换一个单词"><a href="#vim-快速选中并复制粘贴替换一个单词" class="headerlink" title="vim 快速选中并复制粘贴替换一个单词"></a>vim 快速选中并复制粘贴替换一个单词</h3><ol>
+<li>光标移动到aaa的开头，按 v 按e 按y</li>
+<li>光标移动到bbb的开头，按 v 按e 按p<br> 也就说，快速选中一个单词，按v按e即可。</li>
+</ol>
+<ul>
+<li>复制一个单词: <code>yaw</code> </li>
+<li>复制一行: <code>yim</code> 光标在中间</li>
+</ul>
+<h3 id="插入命令"><a href="#插入命令" class="headerlink" title="插入命令"></a>插入命令</h3><ul>
+<li><code>i</code> 在当前位置生前插入</li>
+<li><code>I</code> 在当前行首插入</li>
+<li><code>a</code> 在当前位置后插入</li>
+<li><code>A</code> 在当前行尾插入</li>
+<li><code>o</code> 在当前行之后插入一行</li>
+<li><code>O</code> 在当前行之前插入一行</li>
+</ul>
+<h3 id="查找命令"><a href="#查找命令" class="headerlink" title="查找命令"></a>查找命令</h3><ul>
+<li><code>/text</code>　　查找text，按n健查找下一个，按N健查找前一个。</li>
+<li><code>?text</code>　　查找text，反向查找，按n健查找下一个，按N健查找前一个。</li>
+<li>vim中有一些特殊字符在查找时需要转义　　<code>.*[]^%/?~$</code> </li>
+<li><code>:set ignorecase</code>　　忽略大小写的查找</li>
+<li><code>:set noignorecase</code>　　不忽略大小写的查找</li>
+<li>查找很长的词，如果一个词很长，键入麻烦，可以将光标移动到该词上，按<code>*</code>或<code>#</code>键即可以该单词进行搜索，相当于/搜索。而#命令相当于?搜索。</li>
+<li><code>:set hlsearch</code>　　高亮搜索结果，所有结果都高亮显示，而不是只显示一个匹配。</li>
+<li><code>:set nohlsearch</code>　　关闭高亮搜索显示</li>
+<li><code>:nohlsearch</code>　　关闭当前的高亮显示，如果再次搜索或者按下n或N键，则会再次高亮。</li>
+<li><code>:set incsearch</code>　　逐步搜索模式，对当前键入的字符进行搜索而不必等待键入完成。</li>
+<li><code>:set wrapscan</code>　　重新搜索，在搜索到文件头或尾时，返回继续搜索，默认开启。</li>
+</ul>
+<h3 id="替换命令"><a href="#替换命令" class="headerlink" title="替换命令"></a>替换命令</h3><ul>
+<li><code>ra</code> 将当前字符替换为a，当期字符即光标所在字符。</li>
+<li><code>s/old/new/</code> 用old替换new，替换当前行的第一个匹配</li>
+<li><code>s/old/new/g</code> 用old替换new，替换当前行的所有匹配</li>
+<li><code>%s/old/new/</code> 用old替换new，替换所有行的第一个匹配</li>
+<li><code>%s/old/new/g</code> 用old替换new，替换整个文件的所有匹配</li>
+<li><code>:10,20 s/^/ /g</code> 在第10行知第20行每行前面加四个空格，用于缩进。</li>
+<li><code>ddp</code> 交换光标所在行和其下紧邻的一行。</li>
+</ul>
+<h3 id="移动命令-1"><a href="#移动命令-1" class="headerlink" title="移动命令"></a>移动命令</h3><ul>
+<li><code>h</code> 左移一个字符</li>
+<li><code>l</code> 右移一个字符，这个命令很少用，一般用w代替。</li>
+<li><code>k</code> 上移一个字符</li>
+<li><code>j</code> 下移一个字符</li>
+<li>以上四个命令可以配合数字使用，比如<code>20j</code>就是向下移动20行，<code>5h</code>就是向左移动5个字符，在Vim中，很多命令都可以配合数字使用，比如删除10个字符<code>10x</code>，在当前位置后插入3个！，<code>3a！&lt;Esc&gt;</code>，这里的Esc是必须的，否则命令不生效。</li>
+<li><code>w</code> 向前移动一个单词（光标停在单词首部），如果已到行尾，则转至下一行行首。此命令快，可以代替l命令。</li>
+<li><code>b</code> 向后移动一个单词 <code>2b</code> 向后移动2个单词</li>
+<li><code>e</code>，同w，只不过是光标停在单词尾部</li>
+<li><code>ge</code>，同b，光标停在单词尾部。</li>
+<li><code>^</code> 移动到本行第一个非空白字符上。</li>
+<li><code>0</code>（数字0）移动到本行第一个字符上，</li>
+<li><code>&lt;HOME&gt;</code> 移动到本行第一个字符。同0健。</li>
+<li><code>$</code> 移动到行尾 <code>3$</code> 移动到下面3行的行尾</li>
+<li><code>gg</code> 移动到文件头。 = [[</li>
+<li><code>G</code>（shift + g） 移动到文件尾。 = ]]</li>
+<li><code>f</code>（find）命令也可以用于移动，<code>fx</code>将找到光标后第一个为x的字符，<code>3fd</code>将找到第三个为d的字符。</li>
+<li><code>F</code> 同f，反向查找。</li>
+<li>跳到指定行，<code>:n</code>，回车，比如跳到240行就是 :240回车。另一个方法是行号+G，比如230G跳到230行。</li>
+<li><code>Ctrl + e</code> 向下滚动一行</li>
+<li><code>Ctrl + y</code> 向上滚动一行</li>
+<li><code>Ctrl + d</code> 向下滚动半屏</li>
+<li><code>Ctrl + u</code> 向上滚动半屏</li>
+<li><code>Ctrl + f</code> 向下滚动一屏</li>
+<li><code>Ctrl + b</code> 向上滚动一屏</li>
+</ul>
+<h3 id="撤销和重做"><a href="#撤销和重做" class="headerlink" title="撤销和重做"></a>撤销和重做</h3><ul>
+<li><code>u</code> 撤销（Undo）</li>
+<li><code>U</code> 撤销对整行的操作</li>
+<li><code>Ctrl + r</code> 重做（Redo），即撤销的撤销。</li>
+</ul>
+<h3 id="删除命令"><a href="#删除命令" class="headerlink" title="删除命令"></a>删除命令</h3><ul>
+<li><code>x</code> 删除当前字符</li>
+<li><code>3x</code> 删除当前光标开始向后三个字符</li>
+<li><code>X</code> 删除当前字符的前一个字符。X=dh</li>
+<li><code>dl</code> 删除当前字符， dl=x</li>
+<li><code>dh</code> 删除前一个字符</li>
+<li><code>dd</code> 删除当前行</li>
+<li><code>dj</code> 删除上一行</li>
+<li><code>dk</code> 删除下一行</li>
+<li><code>10d</code> 删除当前行开始的10行。</li>
+<li><code>D</code> 删除当前字符至行尾。D=d$</li>
+<li><code>d$</code> 删除当前字符之后的所有字符（本行）</li>
+<li><code>kdgg</code> 删除当前行之前所有行（不包括当前行）</li>
+<li><code>jdG</code>（jd shift + g）   删除当前行之后所有行（不包括当前行）</li>
+<li><code>:1,10d</code> 删除1-10行</li>
+<li><code>:11,$d</code> 删除11行及以后所有的行</li>
+<li><code>:1,$d</code> 删除所有行</li>
+<li><code>J</code>(shift + j)　　删除两行之间的空行，实际上是合并两行。</li>
+</ul>
+<h3 id="拷贝和粘贴"><a href="#拷贝和粘贴" class="headerlink" title="拷贝和粘贴"></a>拷贝和粘贴</h3><ul>
+<li><code>yy</code> 拷贝当前行</li>
+<li><code>nyy</code> 拷贝当前后开始的n行，比如2yy拷贝当前行及其下一行。</li>
+<li><code>p</code>  在当前光标后粘贴,如果之前使用了yy命令来复制一行，那么就在当前行的下一行粘贴。</li>
+<li><code>shift+p</code> 在当前行前粘贴</li>
+<li><code>:1,10 co 20</code> 将1-10行插入到第20行之后。</li>
+<li><code>:1,$ co $</code> 将整个文件复制一份并添加到文件尾部。</li>
+<li>正常模式下按<code>v</code>（逐字）或<code>V</code>（逐行）进入可视模式，然后用jklh命令移动即可选择某些行或字符，再按<code>y</code>即可复制</li>
+<li><code>ddp</code>交换当前行和其下一行</li>
+<li><code>xp</code>交换当前字符和其后一个字符</li>
+</ul>
+<h3 id="剪切命令"><a href="#剪切命令" class="headerlink" title="剪切命令"></a>剪切命令</h3><ul>
+<li>正常模式下按<code>v</code>（逐字）或<code>V</code>（逐行）进入可视模式，然后用jklh命令移动即可选择某些行或字符，再按<code>d</code>即可剪切</li>
+<li><code>ndd</code> 剪切当前行之后的n行。利用p命令可以对剪切的内容进行粘贴</li>
+<li><code>:1,10d</code> 将1-10行剪切。利用p命令可将剪切后的内容进行粘贴。</li>
+<li><code>:1, 10 m 20</code> 将第1-10行移动到第20行之后。</li>
+</ul>
+<h3 id="退出命令"><a href="#退出命令" class="headerlink" title="退出命令"></a>退出命令</h3><ul>
+<li><code>:wq</code> 保存并退出</li>
+<li><code>ZZ</code> 保存并退出</li>
+<li><code>:q!</code> 强制退出并忽略所有更改</li>
+<li><code>:e!</code> 放弃所有修改，并打开原来文件。</li>
+</ul>
+<h3 id="窗口命令"><a href="#窗口命令" class="headerlink" title="窗口命令"></a>窗口命令</h3><ul>
+<li><code>:split</code>或<code>:new</code> 打开一个新窗口，光标停在顶层的窗口上</li>
+<li><code>:split file</code>或<code>:new file</code> 用新窗口打开文件</li>
+<li><code>split</code>打开的窗口都是横向的，使用<code>vsplit</code>可以纵向打开窗口。</li>
+<li><code>Ctrl+ww</code> 移动到下一个窗口</li>
+<li><code>Ctrl+wj</code> 移动到下方的窗口</li>
+<li><code>Ctrl+wk</code> 移动到上方的窗口</li>
+</ul>
+<h3 id="关闭窗口"><a href="#关闭窗口" class="headerlink" title="关闭窗口"></a>关闭窗口</h3><ul>
+<li><code>:close</code> 最后一个窗口不能使用此命令，可以防止意外退出vim。</li>
+<li><code>:q</code> 如果是最后一个被关闭的窗口，那么将退出vim。</li>
+<li><code>ZZ</code> 保存并退出。</li>
+<li>关闭所有窗口，只保留当前窗口<code>:only</code> </li>
+</ul>
+<h3 id="录制宏"><a href="#录制宏" class="headerlink" title="录制宏"></a>录制宏</h3><ul>
+<li>按<code>q</code>键加任意字母开始录制，再按q键结束录制（这意味着vim中的宏不可嵌套），使用的时候@加宏名，比如qa。。。q录制名为a的宏，<code>@a</code>使用这个宏。</li>
+</ul>
+<h3 id="执行shell命令"><a href="#执行shell命令" class="headerlink" title="执行shell命令"></a>执行shell命令</h3><ul>
+<li><code>:!command</code></li>
+<li><code>:!ls 列出当前目录下文件</code></li>
+<li><code>:!perl -c script.pl</code> 检查perl脚本语法，可以不用退出vim，非常方便。</li>
+<li><code>:!perl script.pl</code> 执行perl脚本，可以不用退出vim，非常方便。</li>
+<li><code>:suspend</code>或<code>Ctrl - Z</code> 挂起vim，回到shell，按<code>fg</code>可以返回vim。</li>
+</ul>
+<h3 id="注释命令"><a href="#注释命令" class="headerlink" title="注释命令"></a>注释命令</h3><p>perl程序中#开始的行为注释，所以要注释某些行，只需在行首加入#</p>
+<ul>
+<li><code>3,5 s/^/#/g</code> 注释第3-5行</li>
+<li><code>3,5 s/^#//g</code> 解除3-5行的注释</li>
+<li><code>1,$ s/^/#/g</code> 注释整个文档。</li>
+<li><code>:%s/^/#/g</code> 注释整个文档，此法更快。</li>
+</ul>
+<h3 id="帮助命令"><a href="#帮助命令" class="headerlink" title="帮助命令"></a>帮助命令</h3><ul>
+<li><code>:help</code> or F1 显示整个帮助</li>
+<li><code>:help xxx</code> 显示xxx的帮助，比如 :help i, :help CTRL-[（即Ctrl+[的帮助）。</li>
+<li><code>:help 'number'</code> Vim选项的帮助用单引号括起</li>
+<li><code>:help &lt;Esc&gt;</code> 特殊键的帮助用&lt;&gt;扩起</li>
+<li><code>:help -t</code> Vim启动参数的帮助用-</li>
+<li><code>：help i_&lt;Esc&gt;</code> 插入模式下Esc的帮助，某个模式下的帮助用模式_主题的模式<br>帮助文件中位于||之间的内容是超链接，可以用Ctrl+]进入链接，Ctrl+o（Ctrl + t）返回<br>其他非编辑命令</li>
+</ul>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yoursite.com" rel="external nofollow noreferrer">TenYun</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yoursite.com/2019/12/02/vim-base-control/">http://yoursite.com/2019/12/02/vim-base-control/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="http://yoursite.com" target="_blank">TenYun</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/VIM/">
+                                    <span class="chip bg-color">VIM</span>
+                                </a>
+                            
+                                <a href="/tags/基本命令/">
+                                    <span class="chip bg-color">基本命令</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/12/02/vim-base-control-2/">
+                    <div class="card-image">
+                        
+                        <img src="https://upload-images.jianshu.io/upload_images/1464813-64f174231649a882?imageMogr2/auto-orient/strip|imageView2/2/w/1200/format/webp" class="responsive-img" alt="vim-base-control-2">
+                        
+                        <span class="card-title">vim-base-control-2</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            基础:e filename     在编辑器中打开一个文件
+:w              保存文件
+:q              退出vim
+:q!             退出但不保存
+:x              写文件(如果有做
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-02
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/VIM/" class="post-category">
+                                    VIM
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/VIM/">
+                        <span class="chip bg-color">VIM</span>
+                    </a>
+                    
+                    <a href="/tags/vim命令/">
+                        <span class="chip bg-color">vim命令</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/12/02/vim-ctrlp-files-search/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/38.png" class="responsive-img" alt="vim-ctrlp-files-search">
+                        
+                        <span class="card-title">vim-ctrlp-files-search</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            使用频率最高的插件之一
+作用: 模糊搜索, 可以搜索文件/buffer/mru/tag等等
+github: 原始kien/ctrlp, 使用的是国人改进版本 ctrlpvim/ctrlp.vim
+安装Bundle 'ctrlpvim/ctr
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/VIM/" class="post-category">
+                                    VIM
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/VIM/">
+                        <span class="chip bg-color">VIM</span>
+                    </a>
+                    
+                    <a href="/tags/ctrlp/">
+                        <span class="chip bg-color">ctrlp</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+    
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.bootcss.com/tocbot/4.8.1/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="http://yoursite.com" target="_blank">TengYun</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    window.setTimeout("siteTime()", 1000);
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wen-fei" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:tengyun.zhang.cs@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/tenyun/activities" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/tenyun/activities" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.bootcss.com/materialize/1.0.0/js/materialize.js"></script>
+    <script src="https://cdn.bootcss.com/masonry/4.0.0/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.bootcss.com/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.bootcss.com/scrollprogress/3.0.2/scrollProgress.min.js"></script>
+    <script src="https://cdn.bootcss.com/lightgallery/1.6.11/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="https://cdn.bootcss.com/instant.page/2.0.0/instantpage.min.js" type="module"></script>
+    
+
+</body>
+
+</html>

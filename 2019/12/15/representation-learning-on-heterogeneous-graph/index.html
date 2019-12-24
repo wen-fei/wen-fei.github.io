@@ -1,0 +1,1242 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Representation-Learning-on-Heterogeneous-Graph, Java 机器学习 自然语言处理 表示学习">
+    <meta name="description" content="Representation Learning on Heterogeneous Graph including Heterogeneous Graph Embedding, Heterogeneous Graph Neural Netwo">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Representation-Learning-on-Heterogeneous-Graph | 腾云</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/font-awesome/5.11.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/aos/2.3.4/aos.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/animate.css/3.5.1/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.bootcss.com/lightgallery/1.6.11/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    
+    <script src="https://cdn.bootcss.com/jquery/2.2.0/jquery.min.js"></script>
+    
+<link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper head-container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">腾云</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">腾云</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			Contact
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/wen-fei" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/wen-fei" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgkvZJ0oKmF6wlzYDTDicD1hxmlo6sX05rTMfunSQnvMjzmp8r9c9ZylN5favkLHahl98icz1t6tN5Cg/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        Representation-Learning-on-Heterogeneous-Graph
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="https://cdn.bootcss.com/tocbot/4.8.0/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/Graph-Neural-Network/">
+                                <span class="chip bg-color">Graph Neural Network</span>
+                            </a>
+                        
+                            <a href="/tags/Heterogeneous-Graph/">
+                                <span class="chip bg-color">Heterogeneous Graph</span>
+                            </a>
+                        
+                            <a href="/tags/Representation-Learning/">
+                                <span class="chip bg-color">Representation Learning</span>
+                            </a>
+                        
+                            <a href="/tags/Depp-Learning/">
+                                <span class="chip bg-color">Depp Learning</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/papers/" class="post-category">
+                                papers
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-12-15
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    1.3k
+                </div>
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                    7 分
+                </div>
+                
+				
+                
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+            
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>Representation Learning on Heterogeneous Graph including <strong>Heterogeneous Graph Embedding</strong>, <strong>Heterogeneous Graph Neural Network</strong> and <strong>Applications</strong>.</p>
+<p>Contributed by Houye Ji. <a href="https://github.com/Jhy1993/Representation-Learning-on-Heterogeneous-Graph" target="_blank" rel="noopener">source link</a></p>
+<h1 id="Tutorials-for-Heterogeneous-Graph"><a href="#Tutorials-for-Heterogeneous-Graph" class="headerlink" title="Tutorials for Heterogeneous Graph"></a>Tutorials for Heterogeneous Graph</h1><p>CIKM 2019 Recent Developments of Deep HIN Analysis</p>
+<h1 id="Heterogeneous-Graph-Embedding"><a href="#Heterogeneous-Graph-Embedding" class="headerlink" title="Heterogeneous Graph Embedding"></a>Heterogeneous Graph Embedding</h1><ol>
+<li>Yu He, Yangqiu Song, Jianxin Li, Cheng Ji, Jian Peng, Hao Peng. <strong>HeteSpaceyWalk: A Heterogeneous Spacey Random Walk for Heterogeneous Information Network Embedding</strong> CIKM 2019</li>
+<li>Yukuo Cen, Xu Zou, Jianwei Zhang , Hongxia Yang, Jingren Zhou, Jie Tang. <strong>Representation Learning for Attributed Multiplex Heterogeneous Network.</strong> KDD 2019. <a href="https://arxiv.org/abs/1905.01669" target="_blank" rel="noopener">paper</a></li>
+<li>Xiao Wang, Yiding Zhang, Chuan Shi. <strong>Hyperbolic Heterogeneous Information Network Embedding.</strong> AAAI 2019. <a href="http://shichuan.org/doc/65.pdf" target="_blank" rel="noopener">paper</a></li>
+<li>Sheng Zhou, Jiajun Bu, Xin Wang, Jiawei Chen, Bingbing Hu, Defang Chen, Can Wang. <strong>HAHE: Hierarchical Attentive Heterogeneous Information Network Embedding.</strong> ArXiv 2019. <a href="https://arxiv.org/abs/1902.01475" target="_blank" rel="noopener">paper</a></li>
+<li>Yuanfu Lu, Chuan Shi, Linmei Hu, Zhiyuan Liu. <strong>Relation Structure-Aware Heterogeneous Information Network Embedding.</strong> AAAI 2019. <a href="http://shichuan.org/doc/63.pdf" target="_blank" rel="noopener">paper</a></li>
+<li>Houye Ji, Chuan Shi. <strong>Attention Based Meta Path Fusion for Heterogeneous Information Network Embedding.</strong>PRICAI 2018. <a href="http://shichuan.org/doc/55.pdf" target="_blank" rel="noopener">paper</a></li>
+<li>Hongxu Chen, Hongzhi Yin, Weiqing Wang, Hao Wang, Quoc Viet Hung Nguyen, Xue Li. <strong>PME: Projected Metric Embedding on Heterogeneous Networks for Link Prediction.</strong> KDD 2018 <a href="http://net.pku.edu.cn/daim/hongzhi.yin/papers/KDD18-Hongxu.pdf" target="_blank" rel="noopener">paper</a></li>
+<li>Yu Shi, Qi Zhu, Fang Guo, Chao Zhang, Jiawei Han. <strong>Easing Embedding Learning by Comprehensive Transcription of Heterogeneous Information Networks</strong>. KDD 2018. <a href="https://arxiv.org/abs/1807.03490" target="_blank" rel="noopener">paper</a></li>
+<li>Yu Shi, Huan Gui, Qi Zhu, Lance Kaplan, Jiawei Han. <strong>ASPEM：Embedding Learning by Aspects in Heterogeneous Information Networks.</strong> SDM 2018 <a href="http://yushi2.web.engr.illinois.edu/sdm18.pdf" target="_blank" rel="noopener">paper</a></li>
+<li>Ke Tu, Peng Cui, Xiao Wang, Fei Wang, Wenwu Zhu. <strong>Structural Deep Embedding for Hyper-Networks</strong> AAAI 2018. <a href="https://arxiv.org/abs/1711.10146" target="_blank" rel="noopener">paper</a></li>
+<li>Rana Hussein, Dingqi Yang, Philippe Cudré-Mauroux. <strong>Are Meta-Paths Necessary? Revisiting Heterogeneous Graph Embeddings.</strong> CIKM 2018. <a href="https://dl.acm.org/citation.cfm?id=3271777" target="_blank" rel="noopener">paper</a></li>
+<li>Hongwei Wang, Fuzheng Zhang, Min Hou, Xing Xie, Minyi Guo, Qi Liu. <strong>Signed Heterogeneous Information Network Embedding for Sentiment Link Prediction.</strong> WSDM 2018 <a href="https://arxiv.org/pdf/1712.00732" target="_blank" rel="noopener">paper</a></li>
+<li>Meng Qu, Jian Tang, Jiawei Han. <strong>Curriculum Learning for Heterogeneous Star Network Embedding via Deep Reinforcement Learning.</strong> WSDM 2018.<a href="http://hanj.cs.illinois.edu/pdf/wsdm18_mqu.pdf" target="_blank" rel="noopener">paper</a></li>
+<li>Tao-yang Fu, Wang-Chien Lee, Zhen Lei. <strong>HIN2Vec: Explore Meta-paths in Heterogeneous Information Networks for Representation Learning</strong> CIKM 2017 [paper](<a href="http://shichuan.org/hin/topic/Embedding/2017" target="_blank" rel="noopener">http://shichuan.org/hin/topic/Embedding/2017</a>. CIKM HIN2Vec.pdf)</li>
+<li>Yuxiao Dong, Nitesh V. Chawla, Ananthram Swami. <strong>metapath2vec: Scalable Representation Learning for Heterogeneous Networks</strong> KDD 2017</li>
+<li>Huan Gui, Jialu Liu, Fangbo Tao, Meng Jiang, Brandon Norick, Lance Kaplan, and Jiawei Han. <strong>Embedding Learning with Events in Heterogeneous Information Networks.</strong> TKDE 2017.</li>
+<li>Linchuan Xu, Xiaokai Wei, Jianong Cao, Philip S. Yu. <strong>Embedding of Embedding Joint Embedding for Coupled Heterogeneous Networks.</strong> WSDM 2017.</li>
+<li>Ludovic Dos Santos, Benjamin Piwowarski, Patrick Gallinari. <strong>Multilabel classification on heterogeneous graphs with gaussian embeddings.</strong> ECML 2016. <a href="https://link.springer.com/chapter/10.1007/978-3-319-46227-1_38" target="_blank" rel="noopener">paper</a></li>
+<li>Jian Tang, Meng Qu, Qiaozhu Mei. <strong>PTE: Predictive Text Embedding through Large-scale Heterogeneous Text Networks.</strong> KDD 2015. <a href="http://dl.acm.org/citation.cfm?id=2783307" target="_blank" rel="noopener">paper</a></li>
+<li>Shiyu Chang, Wei Han, Jiliang Tang, Guo-Jun Qi, Charu C. Aggarwal, Thomas S. Huang. <strong>Heterogeneous Network Embedding via Deep Architectures</strong> KDD 2015 <a href="https://dl.acm.org/citation.cfm?doid=2783258.2783296" target="_blank" rel="noopener">paper</a></li>
+<li>Daokun Zhang, Jie Yin, Xingquan Zhu, and Chengqi Zhang. <strong>MetaGraph2Vec: Complex Semantic Path Augmented Heterogeneous Network Embedding</strong> PAKDD 2018. <a href="https://arxiv.org/pdf/1803.02533.pdf" target="_blank" rel="noopener">paper</a></li>
+</ol>
+<h1 id="Heterogeneous-Graph-Neural-Network"><a href="#Heterogeneous-Graph-Neural-Network" class="headerlink" title="Heterogeneous Graph Neural Network"></a>Heterogeneous Graph Neural Network</h1><ol>
+<li>Shaohua Fan, Junxiong Zhu, Xiaotian Han, Chuan Shi, Linmei Hu, Biyu Ma, Yongliang Li. <strong>Metapath-guided Heterogeneous Graph Neural Network for Intent Recommendation.</strong> KDD 2019. <a href="https://dl.acm.org/citation.cfm?id=3330673" target="_blank" rel="noopener">paper</a></li>
+<li>Chuxu Zhang, Dongjin Song, Chao Huang, Ananthram Swami, Nitesh V. Chawla. <strong>Heterogeneous Graph Neural Network.</strong> KDD 2019</li>
+<li>Hao Peng, Jianxin Li, Qiran Gong, Yangqiu Song, Yuanxing Ning, Kunfeng Lai and Philip S. Yu <strong>Fine-grained Event Categorization with Heterogeneous Graph Convolutional.</strong> IJCAI 2019. <a href="https://arxiv.org/abs/1906.04580" target="_blank" rel="noopener">paper</a></li>
+<li>Xiao Wang, Houye Ji, Chuan Shi, Bai Wang, Peng Cui, Philip S. Yu, Yanfang Ye.<strong>Heterogeneous Graph Attention Network.</strong> WWW 2019. <a href="https://github.com/Jhy1993/HAN" target="_blank" rel="noopener">paper</a></li>
+<li>Yizhou Zhang, Yun Xiong, Xiangnan Kong, Shanshan Li, Jinhong Mi, Yangyong Zhu. <strong>Deep Collective Classification in Heterogeneous Information Networks.</strong> WWW 2018. <a href="https://dl.acm.org/citation.cfm?id=3186106" target="_blank" rel="noopener">paper</a></li>
+<li>Ziqi Liu, Chaochao Chen, Xinxing Yang, Jun Zhou, Xiaolong Li, Le Song. <strong>Heterogeneous Graph Neural Networks for Malicious Account Detection.</strong> CIKM 2018. <a href="https://dl.acm.org/citation.cfm?id=3272010" target="_blank" rel="noopener">paper</a></li>
+<li>Marinka Zitnik, Monica Agrawal, Jure Leskovec. <strong>Modeling polypharmacy side effects with graph convolutional networks</strong> ISMB 2018 <a href="https://arxiv.org/abs/1802.00543" target="_blank" rel="noopener">paper</a></li>
+</ol>
+<h1 id="Heterogeneous-Graph-Embedding-based-Application"><a href="#Heterogeneous-Graph-Embedding-based-Application" class="headerlink" title="Heterogeneous Graph Embedding based Application"></a>Heterogeneous Graph Embedding based Application</h1><ol>
+<li>Yuyan Zheng, Chuan Shi, Xiangnan Kong, Yanfang Ye.<strong>Author Set Identification via Quasi-Clique Discovery.</strong> CIKM 2019 <a href="http://shichuan.org/doc/72.pdf" target="_blank" rel="noopener">paper</a></li>
+<li>Yongji Wu, Defu Lian, Shuowei Jin and Enhong Chen. <strong>Graph Convolutional Networks on User Mobility Heterogeneous Graphs for Social Relationship Inference</strong> IJCAI 2019</li>
+<li>Yanfang Ye, Shifu Hou, Lingwei Chen, Jingwei Lei, Wenqiang Wan, Jiabin Wang, Qi Xiong, and Fudong Shao .<strong>Out-of-sample Node Representation Learning for Heterogeneous Graph in</strong> <strong>Real-time Android Malware Detection</strong> IJCAI 2019</li>
+<li>Weijian Chen, Yulong Gu, Zhaochun Ren , Xiangnan He, Hongtao Xie, Tong Guo, Dawei Yin and Yongdong Zhang.<strong>Semi-supervised User Profiling with Heterogeneous Graph Attention Networks</strong> IJCAI 2019</li>
+<li>Yanan Xu, Yanmin Zhu, Yanyan Shen and Jiadi Yu. <strong>Learning Shared Vertex Representation in Heterogeneous Graphs with</strong> <strong>Convolutional Networks for Recommendation</strong> IJCAI 2019</li>
+<li>Shen Wang, Zhengzhang Chen 2, Xiao Yu, Ding Li, Jingchao Ni, Lu-An Tang, Jiaping Gui, Zhichun Li, Haifeng Chen, Philip S. Yu. <strong>Heterogeneous Graph Matching Networks for Unknown Malware Detection</strong> IJCAI 2019</li>
+<li>Linmei Hu, Tianchi Yang, Chuan Shi, Houye Ji, Xiaoli Li.<strong>Heterogeneous Graph Attention Networks for Semi-supervised Short Text Classification.</strong> EMNLP 2019. <a href="http://shichuan.org/doc/73.pdf" target="_blank" rel="noopener">paper</a></li>
+<li>Chuan Shi, Xiaotian Han, Li Song, Xiao Wang, Senzhang Wang, Junping Du, Philip S. Yu.<strong>Deep Collaborative Filtering with Multi-Aspect Information in Heterogeneous Networks.</strong> TKDE 2019. <a href="http://shichuan.org/doc/75.pdf" target="_blank" rel="noopener">paper</a></li>
+<li>Yiming Zhang, Yujie Fan, Wei Song, Shifu Hou, Yanfang Ye, Xin Li, Liang Zhao, Chuan Shi, Jiabin Wang, Qi Xiong.<strong>Your Style Your Identity: Leveraging Writing and Photography Styles for Drug Trafficker Identification in Darknet Markets over Attributed Heterogeneous Information Network.</strong> WWW 2019 <a href="http://shichuan.org/doc/69.pdf" target="_blank" rel="noopener">paper</a></li>
+<li>Binbin Hu, Zhiqiang Zhang, Chuan Shi, Jun Zhou, Xiaolong Li, Yuan Qi. <strong>Cash-out User Detection based on Attributed Heterogeneous Information Network with a Hierarchical Attention Mechanism.</strong> AAAI 2019. <a href="http://shichuan.org/doc/64.pdf" target="_blank" rel="noopener">paper</a></li>
+<li>Shaohua Fan, Chuan Shi, Xiao Wang. <strong>Abnormal Event Detection via Heterogeneous Information Network Embedding.</strong> CIKM 2018. <a href="http://shichuan.org/doc/62.pdf" target="_blank" rel="noopener">paper</a></li>
+<li>Yujie Fan, Shifu Hou, Yiming Zhang, Yanfang Ye, Melih Abdulhayoglu <strong>Gotcha - Sly Malware! Scorpion: A Metagraph2vec Based Malware Detection System.</strong> KDD 2018.</li>
+<li>Zemin Liu, Vicent W. Zheng, Zhou Zhao, Zhao Li, Hongxia Yang, Minghui Wu, Jing Ying. <strong>Interactive Paths Embedding for Semantic Proximity Search on Heterogeneous Graphs.</strong> KDD 2018</li>
+<li>Vincent W. ZHENG, Mo SHA Yuchen LI, Hongxia YANG, Zhenjie ZHANG, Kian-Lee TAN. <strong>Heterogeneous embedding propagation for large-scale e-commerce user alignment</strong> ICDM 2018. <a href="https://ink.library.smu.edu.sg/sis_research/4217/" target="_blank" rel="noopener">paper</a></li>
+<li>Chuan Shi, Binbin Hu, Wayne Xin Zhao, Philip S. Yu. <strong>Heterogeneous Information Network Embedding for Recommendation.</strong> IEEE Transactions on Knowledge and Data Engineering, 2018. <a href="http://shichuan.org/doc/48.pdf" target="_blank" rel="noopener">paper</a></li>
+<li>Binbin Hu, Chuan Shi, Wayne Xin Zhao, Philip S. Yu. <strong>Leveraging Meta-path based Context for Top-N Recommendation with A Neural Co-Attention Model.</strong> KDD 2018. <a href="http://shichuan.org/doc/47.pdf" target="_blank" rel="noopener">paper</a></li>
+<li>Binbin Hu, Chuan Shi, Wayne Xin Zhao, Tianchi Yang. <strong>Local and Global Information Fusion for Top-N Recommendation in Heterogeneous Information Network.</strong> CIKM 2018. <a href="http://shichuan.org/doc/61.pdf" target="_blank" rel="noopener">paper</a></li>
+<li>Xiaotian Han, Chuan Shi, Senzhang Wang, Philip S. Yu, Li Song. <strong>Aspect-Level Deep Collaborative Filtering via Heterogeneous Information Networks.</strong> IJCAI 2018. <a href="http://shichuan.org/doc/46.pdf" target="_blank" rel="noopener">paper</a></li>
+<li>Zemin Liu, Vicent W. Zheng, Zhou Zhao, Hongxia Yang, Kevin Chen-Chuan Chang, Minghui Wu, Jing Ying. <strong>SPE_Subgraph-augmented Path Embedding for Semantic User Search on Heterogeneous Social Network.</strong>WWW 2018.</li>
+<li>Zemin Liu, Vincent W. Zheng, Zhou Zhao, Fanwei Zhu, Kevin Chen-Chuan Chang, Minghui Wu, Jing Ying. <strong>Distance-aware DAG Embedding for Proximity Search on Heterogeneous Graphs.</strong> AAAI 2018</li>
+<li>Ting Chen, Yizhou Sun. <strong>Task-Guided and Path-Augmented Heterogeneous Network Embedding for Author Identification</strong> WSDM 2017. <a href="https://arxiv.org/pdf/1612.02814.pdf" target="_blank" rel="noopener">paper</a></li>
+</ol>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yoursite.com" rel="external nofollow noreferrer">TenYun</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://yoursite.com/2019/12/15/representation-learning-on-heterogeneous-graph/">http://yoursite.com/2019/12/15/representation-learning-on-heterogeneous-graph/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="http://yoursite.com" target="_blank">TenYun</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/Graph-Neural-Network/">
+                                    <span class="chip bg-color">Graph Neural Network</span>
+                                </a>
+                            
+                                <a href="/tags/Heterogeneous-Graph/">
+                                    <span class="chip bg-color">Heterogeneous Graph</span>
+                                </a>
+                            
+                                <a href="/tags/Representation-Learning/">
+                                    <span class="chip bg-color">Representation Learning</span>
+                                </a>
+                            
+                                <a href="/tags/Depp-Learning/">
+                                    <span class="chip bg-color">Depp Learning</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+                <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.4rem;
+        line-height: 38px;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fas fa-times"></i></a>
+            <h4 class="reward-title">你的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/12/19/graph-based-deep-learning-literature/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/32.png" class="responsive-img" alt="graph-based-deep-learning-literature">
+                        
+                        <span class="card-title">graph-based-deep-learning-literature</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Graph-based deep learning literatureThe repository contains links to
+
+conference publications and the top 10 most cited 
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2019-12-19
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Graph-Embeddings/" class="post-category">
+                                    Graph Embeddings
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Graph-based-deep-learning/">
+                        <span class="chip bg-color">Graph-based deep learning</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/12/11/www2019-graph-embeddings/">
+                    <div class="card-image">
+                        
+                        <img src="https://www2019.thewebconf.org/media/logo.svg" class="responsive-img" alt="www2019关于图表示学习相关论文阅读">
+                        
+                        <span class="card-title">www2019关于图表示学习相关论文阅读</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            [TOC]
+1. MARINE基本思想目前在网络embedding主要分两大分支：齐次图和多关系图。
+齐次图是指结点和关系都只有一种类型，proximity是齐次图embedding最着重捕捉的属性。proximity估计节点之间的紧密度，
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2019-12-11
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/embeddings/" class="post-category">
+                                    embeddings
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Graph-Embeddings/">
+                        <span class="chip bg-color">Graph Embeddings</span>
+                    </a>
+                    
+                    <a href="/tags/www2019/">
+                        <span class="chip bg-color">www2019</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+    
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+<!-- 代码块折行 -->
+
+<style type="text/css">
+code[class*="language-"], pre[class*="language-"] { white-space: pre !important; }
+</style>
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="https://cdn.bootcss.com/tocbot/4.8.1/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
+
+    <footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            <span id="year">年份</span>
+            <a href="http://yoursite.com" target="_blank">TengYun</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    window.setTimeout("siteTime()", 1000);
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2019";
+                    var startMonth = "6";
+                    var startDate = "28";
+                    var startHour = "0";
+                    var startMinute = "0";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/wen-fei" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:tengyun.zhang.cs@gmail.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+
+
+
+
+
+
+
+
+    <a href="https://www.zhihu.com/people/tenyun/activities" class="tooltipped" target="_blank" data-tooltip="关注我的知乎: https://www.zhihu.com/people/tenyun/activities" data-position="top" data-delay="50">
+        <i class="fab fa-zhihu1">知</i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="https://cdn.bootcss.com/materialize/1.0.0/js/materialize.js"></script>
+    <script src="https://cdn.bootcss.com/masonry/4.0.0/masonry.pkgd.min.js"></script>
+    <script src="https://cdn.bootcss.com/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.bootcss.com/scrollprogress/3.0.2/scrollProgress.min.js"></script>
+    <script src="https://cdn.bootcss.com/lightgallery/1.6.11/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+    
+    
+    <script src="https://cdn.bootcss.com/instant.page/2.0.0/instantpage.min.js" type="module"></script>
+    
+
+</body>
+
+</html>

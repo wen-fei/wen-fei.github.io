@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-11-29T13:22:32.401Z</updated>
+  <updated>2019-12-19T13:42:08.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,279 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>graph-based-deep-learning-literature</title>
+    <link href="http://yoursite.com/2019/12/19/graph-based-deep-learning-literature/"/>
+    <id>http://yoursite.com/2019/12/19/graph-based-deep-learning-literature/</id>
+    <published>2019-12-19T13:40:42.000Z</published>
+    <updated>2019-12-19T13:42:08.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;Graph-based-deep-learning-literature&quot;&gt;&lt;a href=&quot;#Graph-based-deep-learning-literature&quot; class=&quot;headerlink&quot; title=&quot;Graph-based deep
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Graph Embeddings" scheme="http://yoursite.com/categories/Graph-Embeddings/"/>
+    
+    
+      <category term="Graph-based deep learning" scheme="http://yoursite.com/tags/Graph-based-deep-learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Representation-Learning-on-Heterogeneous-Graph</title>
+    <link href="http://yoursite.com/2019/12/15/representation-learning-on-heterogeneous-graph/"/>
+    <id>http://yoursite.com/2019/12/15/representation-learning-on-heterogeneous-graph/</id>
+    <published>2019-12-15T13:48:37.000Z</published>
+    <updated>2019-12-15T13:51:04.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Representation Learning on Heterogeneous Graph including &lt;strong&gt;Heterogeneous Graph Embedding&lt;/strong&gt;, &lt;strong&gt;Heterogeneous Graph
+        
+      
+    
+    </summary>
+    
+    
+      <category term="papers" scheme="http://yoursite.com/categories/papers/"/>
+    
+    
+      <category term="Graph Neural Network" scheme="http://yoursite.com/tags/Graph-Neural-Network/"/>
+    
+      <category term="Heterogeneous Graph" scheme="http://yoursite.com/tags/Heterogeneous-Graph/"/>
+    
+      <category term="Representation Learning" scheme="http://yoursite.com/tags/Representation-Learning/"/>
+    
+      <category term="Depp Learning" scheme="http://yoursite.com/tags/Depp-Learning/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>www2019关于图表示学习相关论文阅读</title>
+    <link href="http://yoursite.com/2019/12/11/www2019-graph-embeddings/"/>
+    <id>http://yoursite.com/2019/12/11/www2019-graph-embeddings/</id>
+    <published>2019-12-11T07:11:44.000Z</published>
+    <updated>2019-12-24T05:41:45.252Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;1-MARINE&quot;&gt;&lt;a href=&quot;#1-MARINE&quot; class=&quot;headerlink&quot; title=&quot;1. MARINE&quot;&gt;&lt;/a&gt;1. MARINE&lt;/h1&gt;&lt;h2 id=&quot;基本思想&quot;&gt;&lt;a href=&quot;#基本思想&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="embeddings" scheme="http://yoursite.com/categories/embeddings/"/>
+    
+    
+      <category term="Graph Embeddings" scheme="http://yoursite.com/tags/Graph-Embeddings/"/>
+    
+      <category term="www2019" scheme="http://yoursite.com/tags/www2019/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>图表示学习的方法和应用</title>
+    <link href="http://yoursite.com/2019/12/08/graph-embeddings-overreview/"/>
+    <id>http://yoursite.com/2019/12/08/graph-embeddings-overreview/</id>
+    <published>2019-12-08T14:30:05.000Z</published>
+    <updated>2019-12-08T14:31:41.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h1 id=&quot;cross-graph-embedding-with-text-information-augmentation&quot;&gt;&lt;a href=&quot;#cross-graph-embedding-with-text-information-augmentation&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="graph-embeddings" scheme="http://yoursite.com/categories/graph-embeddings/"/>
+    
+    
+      <category term="graph-embeddings" scheme="http://yoursite.com/tags/graph-embeddings/"/>
+    
+      <category term="综述" scheme="http://yoursite.com/tags/%E7%BB%BC%E8%BF%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>go get fail的解决办法</title>
+    <link href="http://yoursite.com/2019/12/05/go-get-error/"/>
+    <id>http://yoursite.com/2019/12/05/go-get-error/</id>
+    <published>2019-12-05T02:31:32.000Z</published>
+    <updated>2019-12-05T02:43:31.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h2&gt;&lt;p&gt;当我们使用 &lt;code&gt;go get&lt;/code&gt;、&lt;code&gt;go install&lt;/code&gt;、&lt;code&gt;go
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Go" scheme="http://yoursite.com/categories/Go/"/>
+    
+    
+      <category term="Go" scheme="http://yoursite.com/tags/Go/"/>
+    
+      <category term="goproxy" scheme="http://yoursite.com/tags/goproxy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vim-base-control-2</title>
+    <link href="http://yoursite.com/2019/12/02/vim-base-control-2/"/>
+    <id>http://yoursite.com/2019/12/02/vim-base-control-2/</id>
+    <published>2019-12-02T11:25:36.000Z</published>
+    <updated>2019-12-02T11:27:31.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;基础&quot;&gt;&lt;a href=&quot;#基础&quot; class=&quot;headerlink&quot; title=&quot;基础&quot;&gt;&lt;/a&gt;基础&lt;/h3&gt;&lt;pre&gt;&lt;code&gt;:e filename     在编辑器中打开一个文件
+:w              保存文件
+:q          
+        
+      
+    
+    </summary>
+    
+    
+      <category term="VIM" scheme="http://yoursite.com/categories/VIM/"/>
+    
+    
+      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
+    
+      <category term="vim命令" scheme="http://yoursite.com/tags/vim%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vim-base-control</title>
+    <link href="http://yoursite.com/2019/12/02/vim-base-control/"/>
+    <id>http://yoursite.com/2019/12/02/vim-base-control/</id>
+    <published>2019-12-02T10:47:13.000Z</published>
+    <updated>2019-12-02T11:05:21.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;命令历史&quot;&gt;&lt;a href=&quot;#命令历史&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="VIM" scheme="http://yoursite.com/categories/VIM/"/>
+    
+    
+      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
+    
+      <category term="基本命令" scheme="http://yoursite.com/tags/%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vim-ctrlp-files-search</title>
+    <link href="http://yoursite.com/2019/12/02/vim-ctrlp-files-search/"/>
+    <id>http://yoursite.com/2019/12/02/vim-ctrlp-files-search/</id>
+    <published>2019-12-02T10:19:03.000Z</published>
+    <updated>2019-12-02T10:44:13.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;使用频率最高的插件之一&lt;/p&gt;
+&lt;p&gt;作用: 模糊搜索, 可以搜索文件/buffer/mru/tag等等&lt;/p&gt;
+&lt;p&gt;github: 原始&lt;a href=&quot;https://github.com/kien/ctrlp.vim&quot; target=&quot;_blank&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="VIM" scheme="http://yoursite.com/categories/VIM/"/>
+    
+    
+      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
+    
+      <category term="ctrlp" scheme="http://yoursite.com/tags/ctrlp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>vim-split-window</title>
+    <link href="http://yoursite.com/2019/12/02/vim-split-window/"/>
+    <id>http://yoursite.com/2019/12/02/vim-split-window/</id>
+    <published>2019-12-02T08:43:50.000Z</published>
+    <updated>2019-12-02T08:53:49.000Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;分屏启动Vim&quot;&gt;&lt;a href=&quot;#分屏启动Vim&quot; class=&quot;headerlink&quot; title=&quot;分屏启动Vim&quot;&gt;&lt;/a&gt;分屏启动Vim&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;使用大写的O参数来垂直分屏。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;vim -On
+        
+      
+    
+    </summary>
+    
+    
+      <category term="VIM" scheme="http://yoursite.com/categories/VIM/"/>
+    
+    
+      <category term="VIM" scheme="http://yoursite.com/tags/VIM/"/>
+    
+  </entry>
+  
+  <entry>
     <title>网络表示学习论文用到的数据集</title>
     <link href="http://yoursite.com/2019/11/26/graph-embeddings-experiment-dataset/"/>
     <id>http://yoursite.com/2019/11/26/graph-embeddings-experiment-dataset/</id>
     <published>2019-11-26T06:13:52.000Z</published>
-    <updated>2019-11-29T13:22:32.401Z</updated>
+    <updated>2019-12-11T07:11:00.000Z</updated>
     
     <summary type="html">
     
@@ -227,7 +495,7 @@
     <link href="http://yoursite.com/2019/11/13/papers-note-14/"/>
     <id>http://yoursite.com/2019/11/13/papers-note-14/</id>
     <published>2019-11-13T14:31:34.000Z</published>
-    <updated>2019-11-17T07:37:08.107Z</updated>
+    <updated>2019-12-02T08:56:28.000Z</updated>
     
     <summary type="html">
     

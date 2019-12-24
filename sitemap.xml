@@ -2,9 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/12/11/www2019-graph-embeddings/</loc>
+    
+    <lastmod>2019-12-24T05:41:45.252Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/12/19/graph-based-deep-learning-literature/</loc>
+    
+    <lastmod>2019-12-19T13:42:08.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/12/15/representation-learning-on-heterogeneous-graph/</loc>
+    
+    <lastmod>2019-12-15T13:51:04.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/11/26/graph-embeddings-experiment-dataset/</loc>
     
-    <lastmod>2019-11-29T13:22:32.401Z</lastmod>
+    <lastmod>2019-12-11T07:11:00.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/12/08/graph-embeddings-overreview/</loc>
+    
+    <lastmod>2019-12-08T14:31:41.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/12/05/go-get-error/</loc>
+    
+    <lastmod>2019-12-05T02:43:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/12/02/vim-base-control-2/</loc>
+    
+    <lastmod>2019-12-02T11:27:31.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/12/02/vim-base-control/</loc>
+    
+    <lastmod>2019-12-02T11:05:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/12/02/vim-ctrlp-files-search/</loc>
+    
+    <lastmod>2019-12-02T10:44:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/11/13/papers-note-14/</loc>
+    
+    <lastmod>2019-12-02T08:56:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/12/02/vim-split-window/</loc>
+    
+    <lastmod>2019-12-02T08:53:49.000Z</lastmod>
     
   </url>
   
@@ -47,13 +117,6 @@
     <loc>http://yoursite.com/2019/11/14/java-jvm-1/</loc>
     
     <lastmod>2019-11-18T07:29:19.783Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/11/13/papers-note-14/</loc>
-    
-    <lastmod>2019-11-17T07:37:08.107Z</lastmod>
     
   </url>
   
