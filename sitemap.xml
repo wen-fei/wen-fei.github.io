@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/12/15/representation-learning-on-heterogeneous-graph/</loc>
+    
+    <lastmod>2020-01-15T04:55:42.985Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2020/01/15/mysql-support-emoj/</loc>
     
     <lastmod>2020-01-15T04:51:07.834Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://yoursite.com/2019/12/19/graph-based-deep-learning-literature/</loc>
     
     <lastmod>2019-12-19T13:42:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/12/15/representation-learning-on-heterogeneous-graph/</loc>
-    
-    <lastmod>2019-12-15T13:51:04.000Z</lastmod>
     
   </url>
   
