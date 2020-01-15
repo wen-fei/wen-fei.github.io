@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/12/02/vim-split-window/</loc>
+    
+    <lastmod>2020-01-15T05:15:38.586Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/12/02/vim-ctrlp-files-search/</loc>
+    
+    <lastmod>2020-01-15T05:15:27.125Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/12/15/representation-learning-on-heterogeneous-graph/</loc>
     
     <lastmod>2020-01-15T04:59:53.614Z</lastmod>
@@ -65,23 +79,9 @@
   </url>
   
   <url>
-    <loc>http://yoursite.com/2019/12/02/vim-ctrlp-files-search/</loc>
-    
-    <lastmod>2019-12-02T10:44:13.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://yoursite.com/2019/11/13/papers-note-14/</loc>
     
     <lastmod>2019-12-02T08:56:28.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/12/02/vim-split-window/</loc>
-    
-    <lastmod>2019-12-02T08:53:49.000Z</lastmod>
     
   </url>
   
