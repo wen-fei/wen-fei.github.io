@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2020/01/15/mysql-support-emoj/</loc>
+    
+    <lastmod>2020-01-15T04:51:07.834Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/12/11/www2019-graph-embeddings/</loc>
     
     <lastmod>2019-12-26T06:25:53.233Z</lastmod>
@@ -81,42 +88,42 @@
   <url>
     <loc>http://yoursite.com/2019/11/16/git-notes/</loc>
     
-    <lastmod>2019-11-18T07:31:49.464Z</lastmod>
+    <lastmod>2019-11-18T07:31:49.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/11/18/graph-embeddings-papers-list/</loc>
     
-    <lastmod>2019-11-18T07:29:46.561Z</lastmod>
+    <lastmod>2019-11-18T07:29:46.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/11/14/java-jvm-4/</loc>
     
-    <lastmod>2019-11-18T07:29:42.748Z</lastmod>
+    <lastmod>2019-11-18T07:29:42.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/11/14/java-jvm-3/</loc>
     
-    <lastmod>2019-11-18T07:29:35.613Z</lastmod>
+    <lastmod>2019-11-18T07:29:35.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/11/14/java-jvm-2/</loc>
     
-    <lastmod>2019-11-18T07:29:28.364Z</lastmod>
+    <lastmod>2019-11-18T07:29:28.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://yoursite.com/2019/11/14/java-jvm-1/</loc>
     
-    <lastmod>2019-11-18T07:29:19.783Z</lastmod>
+    <lastmod>2019-11-18T07:29:19.000Z</lastmod>
     
   </url>
   

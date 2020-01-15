@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-12-19T13:42:08.000Z</updated>
+  <updated>2020-01-15T04:51:07.834Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,40 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MySQL支持emoj表情数据</title>
+    <link href="http://yoursite.com/2020/01/15/mysql-support-emoj/"/>
+    <id>http://yoursite.com/2020/01/15/mysql-support-emoj/</id>
+    <published>2020-01-15T04:39:52.000Z</published>
+    <updated>2020-01-15T04:51:07.834Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;最近毕设需要用到爬虫，爬取某站数据存储的时候发生了一个异常，搜索后发现是emoj表情问题。解决办法也比较简单，记录一下。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;要存储 &lt;strong&gt;emoji&lt;/strong&gt; 表情，需要客户端、到 RDS
+        
+      
+    
+    </summary>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/categories/MySQL/"/>
+    
+    
+      <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
+    
+      <category term="emoj" scheme="http://yoursite.com/tags/emoj/"/>
+    
+      <category term="character-set" scheme="http://yoursite.com/tags/character-set/"/>
+    
+  </entry>
   
   <entry>
     <title>graph-based-deep-learning-literature</title>
@@ -317,7 +351,7 @@
     <link href="http://yoursite.com/2019/11/18/graph-embeddings-papers-list/"/>
     <id>http://yoursite.com/2019/11/18/graph-embeddings-papers-list/</id>
     <published>2019-11-18T02:19:01.000Z</published>
-    <updated>2019-11-18T07:29:46.561Z</updated>
+    <updated>2019-11-18T07:29:46.000Z</updated>
     
     <summary type="html">
     
@@ -346,7 +380,7 @@
     <link href="http://yoursite.com/2019/11/16/git-notes/"/>
     <id>http://yoursite.com/2019/11/16/git-notes/</id>
     <published>2019-11-16T06:16:33.000Z</published>
-    <updated>2019-11-18T07:31:49.464Z</updated>
+    <updated>2019-11-18T07:31:49.000Z</updated>
     
     <summary type="html">
     
@@ -373,7 +407,7 @@
     <link href="http://yoursite.com/2019/11/14/java-jvm-4/"/>
     <id>http://yoursite.com/2019/11/14/java-jvm-4/</id>
     <published>2019-11-14T07:46:24.000Z</published>
-    <updated>2019-11-18T07:29:42.748Z</updated>
+    <updated>2019-11-18T07:29:42.000Z</updated>
     
     <summary type="html">
     
@@ -404,7 +438,7 @@
     <link href="http://yoursite.com/2019/11/14/java-jvm-3/"/>
     <id>http://yoursite.com/2019/11/14/java-jvm-3/</id>
     <published>2019-11-14T07:44:22.000Z</published>
-    <updated>2019-11-18T07:29:35.613Z</updated>
+    <updated>2019-11-18T07:29:35.000Z</updated>
     
     <summary type="html">
     
@@ -433,7 +467,7 @@
     <link href="http://yoursite.com/2019/11/14/java-jvm-2/"/>
     <id>http://yoursite.com/2019/11/14/java-jvm-2/</id>
     <published>2019-11-14T07:42:13.000Z</published>
-    <updated>2019-11-18T07:29:28.364Z</updated>
+    <updated>2019-11-18T07:29:28.000Z</updated>
     
     <summary type="html">
     
@@ -464,7 +498,7 @@
     <link href="http://yoursite.com/2019/11/14/java-jvm-1/"/>
     <id>http://yoursite.com/2019/11/14/java-jvm-1/</id>
     <published>2019-11-14T07:39:24.000Z</published>
-    <updated>2019-11-18T07:29:19.783Z</updated>
+    <updated>2019-11-18T07:29:19.000Z</updated>
     
     <summary type="html">
     

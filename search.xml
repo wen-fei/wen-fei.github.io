@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>MySQL支持emoj表情数据</title>
+      <link href="/2020/01/15/mysql-support-emoj/"/>
+      <url>/2020/01/15/mysql-support-emoj/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>最近毕设需要用到爬虫，爬取某站数据存储的时候发生了一个异常，搜索后发现是emoj表情问题。解决办法也比较简单，记录一下。</p></blockquote><p>要存储 <strong>emoji</strong> 表情，需要客户端、到 RDS MySQL 实例的连接、RDS 实例内部 3 个方面统一使用或者支持 <strong>utf8mb4</strong> 字符集。</p><h3 id="一、-修改MySQL配置"><a href="#一、-修改MySQL配置" class="headerlink" title="一、 修改MySQL配置"></a>一、 修改MySQL配置</h3><p>注意，MySQL版本需要5.53以上。</p><pre class=" language-mysql"><code class="language-mysql">[client]      default-character-set = utf8mb4[mysql]      default-character-set = utf8mb4[mysqld]    sql_mode=NO_ENGINE_SUBSTITUTION,STRICT_TRANS_TABLES    character-set-client-handshake=FALSE    character-set-server=utf8mb4    collation-server=utf8mb4_unicode_ci    init_connect='SET NAMES utf8mb4'</code></pre><h3 id="二、修改数据库、表、字段的字符集"><a href="#二、修改数据库、表、字段的字符集" class="headerlink" title="二、修改数据库、表、字段的字符集"></a>二、修改数据库、表、字段的字符集</h3><ol><li><p>修改数据库字符集</p><pre class=" language-mysql"><code class="language-mysql">ALTER DATABASE database_name CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;</code></pre></li><li><p>修改表字符集</p><pre class=" language-mysql"><code class="language-mysql">ALTER TABLE table_name CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</code></pre></li><li><p>修改字段字符集</p><pre class=" language-mysql"><code class="language-mysql">ALTER TABLE table_name CHANGE column_name column_name VARCHAR(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</code></pre></li></ol><h3 id="三、重启MySQL服务"><a href="#三、重启MySQL服务" class="headerlink" title="三、重启MySQL服务"></a>三、重启MySQL服务</h3><p>按照上面的步骤修改以后需要重启服务使之生效，并使用以下命令进行检查。</p><pre class=" language-mysql"><code class="language-mysql">SHOW VARIABLES WHERE Variable_name LIKE 'character%' OR Variable_name LIKE 'collation%';</code></pre><p>结果如下所示：</p><pre><code>+--------------------------+--------------------+| Variable_name   | Value    |+--------------------------+--------------------+| character_set_client  | utf8mb4   || character_set_connection | utf8mb4   || character_set_database | utf8mb4   || character_set_filesystem | binary    || character_set_results | utf8mb4   || character_set_server  | utf8mb4   || character_set_system  | utf8    || collation_connection  | utf8mb4_unicode_ci || collation_database  | utf8mb4_unicode_ci || collation_server   | utf8mb4_unicode_ci |+--------------------------+--------------------+</code></pre><h3 id="四、客户端建立修改字符集"><a href="#四、客户端建立修改字符集" class="headerlink" title="四、客户端建立修改字符集"></a>四、客户端建立修改字符集</h3><p>代码层面建立连接的时候也要指定编码，我用的python，代码示例如下：</p><pre class=" language-python"><code class="language-python">    <span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>        <span class="token keyword">try</span><span class="token punctuation">:</span>            self<span class="token punctuation">.</span>connection <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span>HOST<span class="token punctuation">,</span>                                              user<span class="token operator">=</span>USER<span class="token punctuation">,</span>                                              password<span class="token operator">=</span>PASSWORD<span class="token punctuation">,</span>                                              db<span class="token operator">=</span>DATABASE_NAME<span class="token punctuation">,</span>                                              port<span class="token operator">=</span><span class="token number">3306</span><span class="token punctuation">,</span>                                              charset<span class="token operator">=</span><span class="token string">"utf8mb4"</span>                                              <span class="token punctuation">)</span>        <span class="token keyword">except</span><span class="token punctuation">:</span>            logger<span class="token punctuation">.</span>error<span class="token punctuation">(</span><span class="token string">"MySQL database connect error... please check CUITool.py"</span><span class="token punctuation">)</span>        self<span class="token punctuation">.</span>cursor <span class="token operator">=</span> self<span class="token punctuation">.</span>connection<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> MySQL </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> MySQL </tag>
+            
+            <tag> emoj </tag>
+            
+            <tag> character-set </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>graph-based-deep-learning-literature</title>
       <link href="/2019/12/19/graph-based-deep-learning-literature/"/>
       <url>/2019/12/19/graph-based-deep-learning-literature/</url>
